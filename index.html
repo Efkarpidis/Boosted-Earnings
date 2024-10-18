@@ -1,134 +1,193 @@
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { BarChart2, Zap, Car, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-
-export default function LandingPage() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Email submitted:', email)
-    setSubmitted(true)
-    setEmail('')
-  }
-
-  return (
-    <div className="flex flex-col min-h-screen bg-black text-white">
-      <header className="px-4 lg:px-6 h-20 flex items-center border-b border-yellow-600">
-        <Link href="/" className="flex items-center justify-center">
-          <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Fb-Profile%20%E2%80%93%201-nymeR3f7UoqaLY8kjXmKKEDr5jqEzu.jpg" alt="BoostedEarnings Logo" width={50} height={50} className="mr-2" />
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          {["Founder", "Roadmap", "Invest", "Careers", "Contact"].map((item) => (
-            <Link key={item} href="#" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors">
-              {item}
-            </Link>
-          ))}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosted Earnings - Elevate Your Rideshare Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-black text-white">
+    <header class="px-4 lg:px-6 h-20 flex items-center border-b border-yellow-600">
+        <a href="/" class="flex items-center justify-center">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Fb-Profile%20%E2%80%93%201-nymeR3f7UoqaLY8kjXmKKEDr5jqEzu.jpg" alt="Boosted Earnings Logo" width="50" height="50" class="mr-2">
+        </a>
+        <nav class="ml-auto flex gap-4 sm:gap-6">
+            <a href="#" class="text-sm font-medium text-white hover:text-yellow-400 transition-colors">Founder</a>
+            <a href="#" class="text-sm font-medium text-white hover:text-yellow-400 transition-colors">Roadmap</a>
+            <a href="#" class="text-sm font-medium text-white hover:text-yellow-400 transition-colors">Invest</a>
+            <a href="#" class="text-sm font-medium text-white hover:text-yellow-400 transition-colors">Careers</a>
+            <a href="#" class="text-sm font-medium text-white hover:text-yellow-400 transition-colors">Contact</a>
         </nav>
-      </header>
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <div className="space-y-4 max-w-3xl">
-                <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-yellow-500">
-                  Elevate Your Rideshare Experience
-                </h1>
-                <p className="mx-auto max-w-[700px] text-white md:text-xl lg:text-2xl">
-                  A drivers portal for all rideshare industry platforms. Maximize earnings and enhance your driving experience.
-                </p>
-                <p className="mx-auto max-w-[700px] text-gray-400 md:text-lg italic">
-                  Designed by a driver, for the driver.
-                </p>
-              </div>
-              <div className="w-full max-w-md space-y-4">
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="bg-white/10 border-2 border-yellow-500 focus:border-yellow-400 focus:ring-yellow-400 text-white placeholder-gray-400"
-                  />
-                  <Button type="submit" className="bg-yellow-500 text-black hover:bg-yellow-400 transition-colors">
-                    Gain Early Access
-                  </Button>
-                </form>
-                {submitted && (
-                  <p className="text-sm text-green-400 bg-green-900/50 p-2 rounded">Thanks for your interest! We'll be in touch soon.</p>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-900">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-8 text-center">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-yellow-500">
-                    Revolutionize Your Driving
-                  </h2>
-                  <p className="max-w-[600px] text-white md:text-xl/relaxed mx-auto">
-                    Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.
-                  </p>
+    </header>
+    <main class="flex-1">
+        <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center space-y-8 text-center">
+                    <div class="space-y-4 max-w-3xl">
+                        <h1 class="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-yellow-500">
+                            Elevate Your Rideshare Experience
+                        </h1>
+                        <p class="mx-auto max-w-[700px] text-white md:text-xl lg:text-2xl">
+                            A drivers portal for all rideshare industry platforms. Maximize earnings and enhance your driving experience.
+                        </p>
+                        <p class="mx-auto max-w-[700px] text-gray-400 md:text-lg italic">
+                            Designed by a driver, for the driver.
+                        </p>
+                    </div>
+                    <div class="w-full max-w-md space-y-4">
+                        <form id="earlyAccessForm" class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                            <input type="email" name="email" placeholder="Enter your email" required class="flex h-10 w-full rounded-md border-2 border-yellow-500 bg-white/10 px-3 py-2 text-sm text-white placeholder-gray-400 focus:border-yellow-400 focus:ring-yellow-400">
+                            <button type="submit" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-400 transition-colors">
+                                Gain Early Access
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div className="w-full max-w-full space-y-4 mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[
-                      { icon: BarChart2, title: "Performance Tracking", description: "Monitor your earnings and performance metrics in real-time" },
-                      { icon: Zap, title: "Maximize Your Earnings", description: "Get personalized suggestions to boost your income potential" },
-                      { icon: Car, title: "Gamified Experience", description: "Make your driving shifts more engaging and fun" }
-                    ].map((feature, index) => (
-                      <div key={index} className="flex flex-col items-center space-y-2 p-6 rounded-lg bg-black shadow-lg hover:shadow-xl transition-shadow">
-                        <feature.icon className="h-12 w-12 text-yellow-500" />
-                        <h3 className="text-xl font-bold text-yellow-400">{feature.title}</h3>
-                        <p className="text-sm text-white">{feature.description}</p>
-                      </div>
-                    ))}
-                  </div>
+            </div>
+        </section>
+        <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-900">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="grid gap-12 items-center">
+                    <div class="flex flex-col justify-center space-y-8 text-center">
+                        <div class="space-y-2">
+                            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-yellow-500">
+                                Revolutionize Your Driving
+                            </h2>
+                            <p class="max-w-[600px] text-white md:text-xl/relaxed mx-auto">
+                                Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.
+                            </p>
+                        </div>
+                        <div class="w-full max-w-full space-y-4 mx-auto">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="flex flex-col items-center space-y-2 p-6 rounded-lg bg-black shadow-lg hover:shadow-xl transition-shadow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-yellow-500"><path d="M12 20v-6"/><path d="M6 20V10"/><path d="M18 20V4"/></svg>
+                                    <h3 class="text-xl font-bold text-yellow-400">Performance Tracking</h3>
+                                    <p class="text-sm text-white">Measure and manage your performance stats in real-time.</p>
+                                </div>
+                                <div class="flex flex-col items-center space-y-2 p-6 rounded-lg bg-black shadow-lg hover:shadow-xl transition-shadow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-yellow-500"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+                                    <h3 class="text-xl font-bold text-yellow-400">Maximize Your Earnings</h3>
+                                    <p class="text-sm text-white">Boost your earnings with our strategic tools to maximize your earning potential.</p>
+                                </div>
+                                <div class="flex flex-col items-center space-y-2 p-6 rounded-lg bg-black shadow-lg hover:shadow-xl transition-shadow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-yellow-500"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                                    <h3 class="text-xl font-bold text-yellow-400">Gamified Experience</h3>
+                                    <p class="text-sm text-white">Make your driving shifts more engaging and fun.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </section>
-        <section className="w-full py-12 md:py-24">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-yellow-500">
-                Ready to Boost Your Earnings?
-              </h2>
-              <p className="max-w-[600px] text-white md:text-xl">
-                Join our community of drivers who are maximizing their potential with BoostedEarnings.
-              </p>
-              <Button className="bg-yellow-500 text-black hover:bg-yellow-400 transition-colors">
-                Get Started Now <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
+        <section class="w-full py-12 md:py-24">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-yellow-500">
+                        Ready to Boost Your Earnings?
+                    </h2>
+                    <p class="max-w-[600px] text-white md:text-xl">
+                        Join our community of drivers who are maximizing their potential with Boosted Earnings.
+                    </p>
+                    <button id="getStartedBtn" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-400 transition-colors">
+                        Get Started Now 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
             </div>
-          </div>
         </section>
-      </main>
-      <footer className="w-full py-6 bg-gray-900 border-t border-gray-800">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">
-              © 2024 BoostedEarnings. All rights reserved.
-            </p>
-            <nav className="flex gap-4 sm:gap-6">
-              {["Terms of Service", "Privacy Policy", "Contact Us"].map((item) => (
-                <Link key={item} href="#" className="text-sm hover:underline underline-offset-4 text-gray-400 hover:text-white">
-                  {item}
-                </Link>
-              ))}
-            </nav>
-          </div>
+    </main>
+    <footer class="w-full py-6 bg-gray-900 border-t border-gray-800">
+        <div class="container px-4 md:px-6 mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-sm text-gray-400">
+                    © 2024 Boosted Earnings. All rights reserved.
+                </p>
+                <nav class="flex gap-4 sm:gap-6">
+                    <a href="#" class="text-sm hover:underline underline-offset-4 text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-sm hover:underline underline-offset-4 text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-sm hover:underline underline-offset-4 text-gray-400 hover:text-white">Contact Us</a>
+                </nav>
+            </div>
         </div>
-      </footer>
+    </footer>
+
+    <!-- Modal for account creation -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content bg-gray-900 text-white rounded-lg">
+            <h2 class="text-2xl font-bold mb-4">Create Your Account</h2>
+            <form id="createAccountForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
+                    <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-600 bg-gray-800 text-white shadow-sm focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-600 bg-gray-800 text-white shadow-sm focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-300">Password</label>
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full rounded-md border-gray-600 bg-gray-800 text-white shadow-sm focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50">
+                </div>
+                <button type="submit" class="w-full bg-yellow-500 text-black rounded-md py-2 px-4 hover:bg-yellow-400 transition-colors">Create Account</button>
+            </form>
+        </div>
     </div>
-  )
-}
+
+    <script>
+        document.getElementById('earlyAccessForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var email = this.querySelector('input[name="email"]').value;
+            // Here you would typically send this email to your backend service
+            console.log('Early access requested for:', email);
+            alert('Thanks for your interest! We\'ll be in touch soon.');
+        });
+
+        var modal = document.getElementById('accountModal');
+        var btn = document.getElementById('getStartedBtn');
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('createAccountForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            // Here you would typically send this data to your backend service
+            console.log('Account creation requested for:', formData.get('email'));
+            alert('Account created successfully! Welcome to Boosted Earnings.');
+            modal.style.display = "none";
+        });
+    </script>
+</body>
+</html>
