@@ -63,7 +63,7 @@
         align-items: center;
     }
     .logo img {
-        height: 40px;
+        height: 50px;
         width: auto;
     }
     h1, h2, h3 {
@@ -72,7 +72,7 @@
     .hero {
         text-align: center;
         padding: 160px 0 100px;
-        background: linear-gradient(to bottom, rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 1)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center / cover;
+        background-color: var(--color-background);
     }
     .hero h1 {
         font-size: 3.5em;
@@ -129,8 +129,14 @@
     }
     .features h2 {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         font-size: 2.5em;
+    }
+    .features .subtitle {
+        text-align: center;
+        margin-bottom: 60px;
+        font-size: 1.2em;
+        color: var(--color-text);
     }
     .feature-grid {
         display: grid;
@@ -207,7 +213,7 @@
 <header>
     <nav class="container">
         <div class="logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@3x-8-6nmTy1QnsucOXN8GfsnHnW5fllazu5.png" alt="Boosted Earnings Logo">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@3x-8-RCqlUrkfdpjxpN3ApPKUeQu1uJRpN8.png" alt="Boosted Earnings Logo">
         </div>
         <ul>
             <li><a href="#founder">Founder</a></li>
@@ -235,6 +241,7 @@
     <section id="features" class="features">
         <div class="container">
             <h2>Revolutionize Your Driving</h2>
+            <p class="subtitle">Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.</p>
             <div class="feature-grid">
                 <div class="feature-card">
                     <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -272,8 +279,8 @@
     </section>
 
     <section id="about" class="container">
-        <h2>About Boosted Earnings</h2>
-        <p>We're a team of former rideshare drivers passionate about helping our fellow drivers succeed. Our platform is designed by drivers, for drivers, to address the real challenges and opportunities in the rideshare industry.</p>
+        <h2>About Us</h2>
+        <p>The founder is a former rideshare driver that has earned over $4.2K in a single week using his method of creating a strategic dashboard while being on the road. He empowered himself to the point where drivers started to recognize the difference of earnings between measuring performance and not, and now he wants to provide everybody with the tools and incentives for other hard working individuals to achieve similar results.</p>
     </section>
 
     <section id="contact" class="container">
