@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder - Boosted Earnings</title>
+    <style>
+        :root {
+            --color-primary: #EDCA3F;
+            --color-secondary: #CA9825;
+            --color-background: #0F0F0F;
+            --color-text: #B1B1B1;
+            --color-accent: #434343;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-primary);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        h1, h2, h3 {
+            color: var(--color-primary);
+        }
+        .founder-content {
+            padding: 8rem 0 4rem;
+        }
+        .founder-content h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .founder-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .founder-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 2rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer {
+            background-color: var(--color-accent);
+            color: var(--color-text);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0px;
+                height: 92vh;
+                top: 8vh;
+                background-color: rgba(15, 15, 15, 0.9);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+            .nav-links li {
+                opacity: 0;
+            }
+            .burger {
+                display: block;
+            }
+        }
+        .nav-active {
+            transform: translateX(0%);
+        }
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px,6px);
+        }
+        .toggle .line2 {
+            opacity: 0;
+        }
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px,-6px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@3x-8-RCqlUrkfdpjxpN3ApPKUeQu1uJRpN8.png" alt="Boosted Earnings Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="founder.html">Founder</a></li>
+                <li><a href="#invest">Invest</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="founder-content container">
+            <h1>Meet Our Founder</h1>
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0798%20copy-3ewXOtltsZFDTOhfHCo2K0fgGrrtyl.jpeg" alt="Chris Efkarpidis" class="founder-image">
+            <p>Chris Efkarpidis, founder of Boosted Earnings, faced two options: find a new gig and double his workload, or maximize his earnings to the fullest potential as a rideshare driver. He decided to take the latter. By creating a sophisticated approach to driving, he developed a performance dashboard that provides key metrics to measure and manage his performance. With this strategy, he discovered how to consistently earn far above the average income for a rideshare driver. This concept evolved into what is now the Boosted Earnings dashboard.</p>
+            <p>After earning over $1.2k in a single day, $4.2k in a week, and an impressive $178k over two years, Chris recognized the value this tool could bring to drivers who want to drive smarter and earn more. He created Boosted Earnings to empower others with the same tools and incentives to achieve similar success. Moreover, he wanted the experience to be more enjoyable by incorporating community features such as scoreboards, accolade and recognition systems, and other built-in tools to foster relationships.</p>
+            <p>Chris aspires to help gig workers earn a better living while making their lives easier.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+            <nav>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+            
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+                
+                burger.classList.toggle('toggle');
+            });
+        }
+        
+        navSlide();
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 10);
+        });
+    </script>
+</body>
+</html>
