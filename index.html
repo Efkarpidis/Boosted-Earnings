@@ -1,116 +1,55 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-
-function Button({ children, className, ...props }) {
-  return (
-    <button className={`px-4 py-2 rounded ${className}`} {...props}>
-      {children}
-    </button>
-  )
-}
-
-function Input({ className, ...props }) {
-  return (
-    <input className={`px-3 py-2 border rounded ${className}`} {...props} />
-  )
-}
-
-function Label({ children, className, ...props }) {
-  return (
-    <label className={`block text-sm font-medium ${className}`} {...props}>
-      {children}
-    </label>
-  )
-}
-
-function Card({ children, className, ...props }) {
-  return (
-    <div className={`bg-white shadow rounded-lg ${className}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-function CardHeader({ children, className, ...props }) {
-  return (
-    <div className={`px-4 py-5 border-b border-gray-200 sm:px-6 ${className}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-function CardContent({ children, className, ...props }) {
-  return (
-    <div className={`px-4 py-5 sm:p-6 ${className}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-function CardTitle({ children, className, ...props }) {
-  return (
-    <h3 className={`text-lg leading-6 font-medium text-gray-900 ${className}`} {...props}>
-      {children}
-    </h3>
-  )
-}
-
-function AccountSection() {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="relative w-full max-w-4xl h-[80vh] bg-gray-900 rounded-lg overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="grid grid-cols-2 gap-4 p-8 text-white opacity-20">
-            <div>
-              <h3 className="text-xl font-bold mb-2">Performance KPIs</h3>
-              <p>Rides Completed: 1,234</p>
-              <p>Average Rating: 4.9</p>
-              <p>On-Time Rate: 98%</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Financial Metrics</h3>
-              <p>Total Earnings: $5,678</p>
-              <p>Average Per Ride: $25.50</p>
-              <p>Weekly Growth: 5.2%</p>
-            </div>
-          </div>
-        </div>
-        <div className="absolute inset-0 backdrop-blur-md flex items-center justify-center">
-          <Card className="w-full max-w-md bg-gray-900/80 border-yellow-600">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-white text-center">Sign In to View Your Dashboard</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full bg-yellow-500 text-black hover:bg-yellow-400">
-                Sign In
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function LandingPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isAccountSectionOpen, setIsAccountSectionOpen] = useState(false)
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' })
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Account creation requested for:', formData.email)
-    alert('Account created successfully! Welcome to Boosted Earnings.')
-    setIsModalOpen(false)
-  }
-
-  return (
-    <div className="flex flex-col min-h-screen bg-black text-white">
-      <header className="px-4 lg:px-6 h-20 flex items-center border-b border-yellow-600">
-        <a href="/" className="flex items-center justify-center">
-          <img 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosted Earnings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            margin-top: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Boosted Earnings</h1>
+        <p>Elevate Your Rideshare Experience</p>
+    </header>
+    <main>
+        <h2>Welcome to Boosted Earnings</h2>
+        <p>A drivers portal for all rideshare industry platforms. Maximize earnings and enhance your driving experience.</p>
+        <p><em>Designed by a driver, for the driver.</em></p>
+        <a href="#" class="cta-button">Get Started</a>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Boosted Earnings website loaded successfully!');
+        });
+    </script>
+</body>
+</html>
