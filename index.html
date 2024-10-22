@@ -1,149 +1,176 @@
-import React, { useState } from 'react'
-import { Flame, BarChart2, DollarSign, Gamepad2, BarChartHorizontal } from 'lucide-react'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosted Earnings</title>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#EDCA3F',
+                        secondary: '#CA9825',
+                        background: '#0F0F0F',
+                        text: '#B1B1B1',
+                        accent: '#434343',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+        const { Flame, BarChart2, TrendingUp, Gamepad2 } = lucide;
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+        function LandingPage() {
+            const [email, setEmail] = useState('');
 
-export default function LandingPage() {
-  const [email, setEmail] = useState('')
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                console.log('Submitted email for early access:', email);
+                alert('Thanks for your interest! We\'ll be in touch soon.');
+                setEmail('');
+            };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the email to your backend
-    console.log('Submitted email for early access:', email)
-    alert('Thanks for your interest! We\'ll be in touch soon.')
-    setEmail('')
-  }
+            return (
+                <div className="flex flex-col min-h-screen bg-background text-text">
+                    <header className="px-4 lg:px-6 h-20 flex items-center border-b border-accent">
+                        <a href="/" className="flex items-center justify-center space-x-2">
+                            <img 
+                                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@3x-8-6nmTy1QnsucOXN8GfsnHnW5fllazu5.png" 
+                                alt="Boosted Earnings Logo" 
+                                className="h-12 w-auto mr-2"
+                            />
+                            <span className="text-2xl font-bold text-primary">Boosted Earnings</span>
+                        </a>
+                        <nav className="ml-auto flex gap-4 sm:gap-6">
+                            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">Features</a>
+                            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
+                            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+                        </nav>
+                    </header>
 
-  return (
-    <div className="flex flex-col min-h-screen bg-[#0F0F0F] text-white">
-      <header className="px-4 lg:px-6 h-20 flex items-center border-b border-[#434343]">
-        <a href="/" className="flex items-center justify-center">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@4x-8-klSJWTPTYJhSQNJloFkxfGUx6Fltq4.png" alt="Boosted Earnings Logo" width="50" height="50" className="mr-2" />
-          <span className="text-2xl font-bold text-[#EDCA3F]">Boosted Earnings</span>
-        </a>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <a href="#features" className="text-sm font-medium hover:text-[#EDCA3F] transition-colors">Features</a>
-          <a href="#about" className="text-sm font-medium hover:text-[#EDCA3F] transition-colors">About</a>
-          <a href="#contact" className="text-sm font-medium hover:text-[#EDCA3F] transition-colors">Contact</a>
-        </nav>
-      </header>
+                    <main className="flex-1">
+                        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+                            <div className="container px-4 md:px-6 mx-auto">
+                                <div className="flex flex-col items-center space-y-8 text-center">
+                                    <div className="space-y-4 max-w-3xl">
+                                        <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-primary">
+                                            Elevate Your Rideshare Experience
+                                        </h1>
+                                        <p className="mx-auto max-w-[700px] text-text md:text-xl lg:text-2xl">
+                                            Maximize earnings, manage performance, and gamify your driving with our cutting-edge dashboard.
+                                        </p>
+                                    </div>
+                                    <div className="w-full max-w-md space-y-4">
+                                        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                            <input 
+                                                type="email" 
+                                                placeholder="Enter your email" 
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                required 
+                                                className="flex-1 px-3 py-2 bg-accent border border-secondary text-text placeholder-text rounded-md"
+                                            />
+                                            <button type="submit" className="px-4 py-2 bg-primary text-background hover:bg-secondary rounded-md transition-colors">
+                                                Gain Early Access
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <div className="space-y-4 max-w-3xl">
-                <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-[#EDCA3F]">
-                  Elevate Your Rideshare Experience
-                </h1>
-                <p className="mx-auto max-w-[700px] text-[#B1B1B1] md:text-xl lg:text-2xl">
-                  Maximize earnings, manage performance, and gamify your driving with our cutting-edge dashboard.
-                </p>
-              </div>
-              <div className="w-full max-w-md space-y-4">
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                  <Input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required 
-                    className="flex-1 bg-[#434343] border-[#CA9825] text-white placeholder-[#B1B1B1]" 
-                  />
-                  <Button type="submit" className="bg-[#EDCA3F] text-[#0F0F0F] hover:bg-[#CA9825]">
-                    Gain Early Access
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
+                        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-accent">
+                            <div className="container px-4 md:px-6 mx-auto">
+                                <div className="grid gap-12 items-center">
+                                    <div className="flex flex-col justify-center space-y-8 text-center">
+                                        <div className="space-y-2">
+                                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
+                                                Revolutionize Your Driving
+                                            </h2>
+                                            <p className="max-w-[600px] text-text md:text-xl/relaxed mx-auto">
+                                                Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.
+                                            </p>
+                                        </div>
+                                        <div className="w-full max-w-full space-y-4 mx-auto">
+                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                                <div className="bg-background border border-secondary rounded-lg p-6">
+                                                    <div className="flex flex-col items-center">
+                                                        <BarChart2 className="h-8 w-8 text-primary mb-2" />
+                                                        <h3 className="text-lg font-semibold text-primary">Performance Tracking</h3>
+                                                    </div>
+                                                    <p className="text-sm text-text mt-4">Measure and manage your performance stats in real-time.</p>
+                                                </div>
+                                                <div className="bg-background border border-secondary rounded-lg p-6">
+                                                    <div className="flex flex-col items-center">
+                                                        <TrendingUp className="h-8 w-8 text-primary mb-2" />
+                                                        <h3 className="text-lg font-semibold text-primary">Maximize Your Earnings</h3>
+                                                    </div>
+                                                    <p className="text-sm text-text mt-4">Boost your earnings with our strategic tools to maximize your earning potential.</p>
+                                                </div>
+                                                <div className="bg-background border border-secondary rounded-lg p-6">
+                                                    <div className="flex flex-col items-center">
+                                                        <Gamepad2 className="h-8 w-8 text-primary mb-2" />
+                                                        <h3 className="text-lg font-semibold text-primary">Gamified Experience</h3>
+                                                    </div>
+                                                    <p className="text-sm text-text mt-4">Make your driving shifts more engaging and fun.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-[#1A1A1A]">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-8 text-center">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#EDCA3F]">
-                    Revolutionize Your Driving
-                  </h2>
-                  <p className="max-w-[600px] text-[#B1B1B1] md:text-xl/relaxed mx-auto">
-                    Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.
-                  </p>
+                        <section className="w-full py-12 md:py-24">
+                            <div className="container px-4 md:px-6 mx-auto">
+                                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
+                                        Ready to Boost Your Earnings?
+                                    </h2>
+                                    <p className="max-w-[600px] text-text md:text-xl">
+                                        Join our community of drivers who are maximizing their potential with Boosted Earnings.
+                                    </p>
+                                    <button onClick={() => document.querySelector('input[type="email"]').focus()} className="px-4 py-2 bg-primary text-background hover:bg-secondary rounded-md transition-colors">
+                                        Get Early Access Now
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+
+                    <footer className="w-full py-6 bg-accent border-t border-accent">
+                        <div className="container px-4 md:px-6 mx-auto">
+                            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                                <div className="flex items-center space-x-2">
+                                    <Flame className="h-6 w-6 text-primary" />
+                                    <p className="text-sm text-text">
+                                        © 2024 Boosted Earnings. All rights reserved.
+                                    </p>
+                                </div>
+                                <nav className="flex gap-4 sm:gap-6">
+                                    <a href="#" className="text-sm hover:underline underline-offset-4 text-text hover:text-primary">Terms of Service</a>
+                                    <a href="#" className="text-sm hover:underline underline-offset-4 text-text hover:text-primary">Privacy Policy</a>
+                                    <a href="#" className="text-sm hover:underline underline-offset-4 text-text hover:text-primary">Contact Us</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
-                <div className="w-full max-w-full space-y-4 mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <Card className="bg-[#0F0F0F] border-[#CA9825]">
-                      <CardHeader>
-                        <BarChart2 className="h-8 w-8 text-[#EDCA3F] mb-2" />
-                        <CardTitle className="text-[#EDCA3F]">Performance Tracking</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-[#B1B1B1]">Measure and manage your performance stats in real-time.</p>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-[#0F0F0F] border-[#CA9825]">
-                      <CardHeader>
-                        <BarChartHorizontal className="h-8 w-8 text-[#EDCA3F] mb-2" />
-                        <CardTitle className="text-[#EDCA3F]">Maximize Your Earnings</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-[#B1B1B1]">Boost your earnings with our strategic tools to maximize your earning potential.</p>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-[#0F0F0F] border-[#CA9825]">
-                      <CardHeader>
-                        <Gamepad2 className="h-8 w-8 text-[#EDCA3F] mb-2" />
-                        <CardTitle className="text-[#EDCA3F]">Gamified Experience</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-[#B1B1B1]">Make your driving shifts more engaging and fun.</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            );
+        }
 
-        <section className="w-full py-12 md:py-24">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#EDCA3F]">
-                Ready to Boost Your Earnings?
-              </h2>
-              <p className="max-w-[600px] text-[#B1B1B1] md:text-xl">
-                Join our community of drivers who are maximizing their potential with Boosted Earnings.
-              </p>
-              <Button onClick={() => document.querySelector('input[type="email"]')?.focus()} className="bg-[#EDCA3F] text-[#0F0F0F] hover:bg-[#CA9825]">
-                Get Early Access Now
-              </Button>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="w-full py-6 bg-[#1A1A1A] border-t border-[#434343]">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-2">
-              <Flame className="h-6 w-6 text-[#EDCA3F]" />
-              <p className="text-sm text-[#B1B1B1]">
-                © 2024 Boosted Earnings. All rights reserved.
-              </p>
-            </div>
-            <nav className="flex gap-4 sm:gap-6">
-              <a href="#" className="text-sm hover:underline underline-offset-4 text-[#B1B1B1] hover:text-[#EDCA3F]">Terms of Service</a>
-              <a href="#" className="text-sm hover:underline underline-offset-4 text-[#B1B1B1] hover:text-[#EDCA3F]">Privacy Policy</a>
-              <a href="#" className="text-sm hover:underline underline-offset-4 text-[#B1B1B1] hover:text-[#EDCA3F]">Contact Us</a>
-            </nav>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
-}
+        ReactDOM.render(<LandingPage />, document.getElementById('root'));
+    </script>
+</body>
+</html>
