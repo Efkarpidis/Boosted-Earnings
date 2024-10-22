@@ -3,27 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boosted Earnings</title>
+    <title>Boosted Earnings - Elevate Your Rideshare Experience</title>
     <style>
+        :root {
+            --color-primary: #EDCA3F;
+            --color-secondary: #CA9825;
+            --color-background: #0F0F0F;
+            --color-text: #B1B1B1;
+            --color-accent: #434343;
+        }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #B1B1B1;
-            background-color: #0F0F0F;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
         }
-        h1 {
-            color: #EDCA3F;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--color-background);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-accent);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: var(--color-primary);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo span {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        h1, h2, h3 {
+            color: var(--color-primary);
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: var(--color-secondary);
+        }
+        .features {
+            background-color: var(--color-accent);
+            padding: 60px 0;
+        }
+        .features h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background-color: var(--color-background);
+            border: 1px solid var(--color-secondary);
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color: var(--color-accent);
+            color: var(--color-text);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                margin-top: 20px;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Boosted Earnings</h1>
-    <p>Welcome to Boosted Earnings. Our website is currently under maintenance. Please check back soon!</p>
-    <script>
-        console.log('Boosted Earnings website loaded successfully!');
-    </script>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@3x-8-6nmTy1QnsucOXN8GfsnHnW5fllazu5.png" alt="Boosted Earnings Logo">
+                <span>Boosted Earnings</span>
+            </div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Elevate Your Rideshare Experience</h1>
+                <p>Maximize earnings, manage performance, and gamify your driving with our cutting-edge dashboard.</p>
+                <a href="#" class="cta-button">Gain Early Access</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Revolutionize Your Driving</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Performance Tracking</h3>
+                        <p>Measure and manage your performance stats in real-time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Maximize Your Earnings</h3>
+                        <p>Boost your earnings with our strategic tools to maximize your earning potential.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Gamified Experience</h3>
+                        <p>Make your driving shifts more engaging and fun.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2>About Boosted Earnings</h2>
+            <p>We're a team of former rideshare drivers passionate about helping our fellow drivers succeed. Our platform is designed by drivers, for drivers, to address the real challenges and opportunities in the rideshare industry.</p>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Ready to Boost Your Earnings?</h2>
+            <p>Join our community of drivers who are maximizing their potential with Boosted Earnings.</p>
+            <a href="#" class="cta-button">Get Early Access Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+            <nav>
+                <a href="#">Terms of Service</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
