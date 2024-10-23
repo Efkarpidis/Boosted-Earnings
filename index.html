@@ -94,6 +94,13 @@
             max-width: 600px;
             margin: 0 auto 1rem;
         }
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin: 1.5rem 0;
+            display: inline-block;
+        }
         .cta-form {
             display: flex;
             flex-direction: column;
@@ -126,6 +133,16 @@
         }
         .features {
             padding: 4rem 0;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .features > p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
         .feature-grid {
             display: grid;
@@ -271,7 +288,6 @@
                 <li><a href="#invest">Invest</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#careers">Careers</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
             </ul>
             <div class="burger">
@@ -323,11 +339,8 @@
                     </div>
                     <div class="feature-card">
                         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 6H3C1.89543 6 1 6.89543 1 8V16C1 17.1046 1.89543 18 3 18H21C22.1046 18 23 17.1046 23 16V8C23 6.89543 22.1046 6 21 6Z" stroke="#EDCA3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="7" cy="12" r="1" fill="#EDCA3F"/>
-                            <circle cx="11" cy="12" r="1" fill="#EDCA3F"/>
-                            <path d="M16 11H18V13H16V11Z" fill="#EDCA3F"/>
-                            <path d="M20 11H22V13H20V11Z" fill="#EDCA3F"/>
+                            <circle cx="12" cy="12" r="10" stroke="#EDCA3F" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="#EDCA3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <h3>Gamification Experience</h3>
                         <p>Make your driving shifts more engaging and fun with our interactive challenges and rewards.</p>
@@ -387,13 +400,13 @@
         document.getElementById('email-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            var  formData = new FormData(this);
+            var formData = new FormData(this);
             
             fetch('submit_email.php', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
+            .then(response  => response.json())
             .then(data => {
                 var messageElement = document.getElementById('response-message');
                 messageElement.textContent = data.message;
