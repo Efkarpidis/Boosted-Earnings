@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,11 @@
             --color-text: #B1B1B1;
             --color-accent: #434343;
         }
+        .light {
+            --color-background: #FFFFFF;
+            --color-text: #333333;
+            --color-accent: #E0E0E0;
+        }
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -19,6 +24,7 @@
             background-color: var(--color-background);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             width: 90%;
@@ -34,6 +40,9 @@
             z-index: 1000;
             transition: background-color 0.3s ease;
         }
+        .light header {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
         nav {
             display: flex;
             justify-content: space-between;
@@ -47,6 +56,7 @@
         .nav-links {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
         .nav-links a {
             color: var(--color-text);
@@ -152,10 +162,44 @@
             margin: 0 auto 2rem;
         }
         footer {
-            background-color: var(--color-accent);
+            background-color: var(--color-background);
             color: var(--color-text);
             text-align: center;
             padding: 2rem 0;
+            border-top: 1px solid var(--color-accent);
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        footer a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--color-primary);
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            color: var(--color-text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .theme-toggle:hover {
+            color: var(--color-primary);
         }
         @media screen and (max-width: 768px) {
             .nav-links {
@@ -163,7 +207,7 @@
                 right: 0px;
                 height: 92vh;
                 top: 8vh;
-                background-color: rgba(15, 15, 15, 0.9);
+                background-color: var(--color-background);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -176,6 +220,10 @@
             }
             .burger {
                 display: block;
+            }
+            footer .container {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
         .nav-active {
@@ -200,6 +248,16 @@
         .toggle .line3 {
             transform: rotate(45deg) translate(-5px,-6px);
         }
+        #response-message {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #F44336;
+        }
     </style>
 </head>
 <body>
@@ -214,6 +272,7 @@
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#careers">Careers</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -229,10 +288,11 @@
                 <h1>Elevate Your Rideshare Experience</h1>
                 <p>A drivers hub for all rideshare industry platforms. Maximize your earnings and enhance your driving experience.</p>
                 <p class="tagline">Designed by a driver, for the driver.</p>
-                <form class="cta-form">
-                    <input type="email" placeholder="Enter your email" required>
+                <form id="email-form" class="cta-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit" class="cta-button">Gain Early Access</button>
                 </form>
+                <div id="response-message"></div>
             </div>
         </section>
 
@@ -263,10 +323,11 @@
                     </div>
                     <div class="feature-card">
                         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="#EDCA3F" stroke-width="2"/>
-                            <path d="M7 7V5C7 3.89543 7.89543 3 9 3H15C16.1046 3 17 3.89543 17 5V7" stroke="#EDCA3F" stroke-width="2"/>
-                            <circle cx="7.5" cy="16.5" r="1.5" fill="#EDCA3F"/>
-                            <circle cx="16.5" cy="16.5" r="1.5" fill="#EDCA3F"/>
+                            <path d="M21 6H3C1.89543 6 1 6.89543 1 8V16C1 17.1046 1.89543 18 3 18H21C22.1046 18 23 17.1046 23 16V8C23 6.89543 22.1046 6 21 6Z" stroke="#EDCA3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="7" cy="12" r="1" fill="#EDCA3F"/>
+                            <circle cx="11" cy="12" r="1" fill="#EDCA3F"/>
+                            <path d="M16 11H18V13H16V11Z" fill="#EDCA3F"/>
+                            <path d="M20 11H22V13H20V11Z" fill="#EDCA3F"/>
                         </svg>
                         <h3>Gamification Experience</h3>
                         <p>Make your driving shifts more engaging and fun with our interactive challenges and rewards.</p>
@@ -322,6 +383,53 @@
             const header = document.querySelector('header');
             header.classList.toggle('scrolled', window.scrollY > 10);
         });
+
+        document.getElementById('email-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var  formData = new FormData(this);
+            
+            fetch('submit_email.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                var messageElement = document.getElementById('response-message');
+                messageElement.textContent = data.message;
+                messageElement.className = data.success ? 'success' : 'error';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                var messageElement = document.getElementById('response-message');
+                messageElement.textContent = 'An error occurred. Please try again.';
+                messageElement.className = 'error';
+            });
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('light');
+            const isDarkMode = htmlElement.classList.contains('dark');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        if (savedTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+        } else if (savedTheme === 'dark') {
+            htmlElement.classList.remove('light');
+            htmlElement.classList.add('dark');
+        } else if (prefersDarkScheme.matches) {
+            htmlElement.classList.add('dark');
+        }
     </script>
 </body>
 </html>
