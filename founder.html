@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,11 @@
             --color-text: #B1B1B1;
             --color-accent: #434343;
         }
+        .light {
+            --color-background: #FFFFFF;
+            --color-text: #333333;
+            --color-accent: #E0E0E0;
+        }
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -19,6 +24,7 @@
             background-color: var(--color-background);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             width: 90%;
@@ -34,6 +40,9 @@
             z-index: 1000;
             transition: background-color 0.3s ease;
         }
+        .light header {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
         nav {
             display: flex;
             justify-content: space-between;
@@ -43,10 +52,21 @@
         .logo img {
             height: 40px;
             width: auto;
+            transition: opacity 0.3s ease;
+        }
+        .logo img.light-logo {
+            display: none;
+        }
+        .light .logo img.dark-logo {
+            display: none;
+        }
+        .light .logo img.light-logo {
+            display: inline;
         }
         .nav-links {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
         .nav-links a {
             color: var(--color-text);
@@ -68,37 +88,51 @@
             margin: 5px;
             transition: all 0.3s ease;
         }
-        h1, h2, h3 {
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            color: var(--color-text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .theme-toggle:hover {
             color: var(--color-primary);
         }
-        .founder-content {
+        .founder-section {
             padding: 8rem 0 4rem;
-        }
-        .founder-content h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
             text-align: center;
         }
-        .founder-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+        .founder-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
         }
         .founder-image {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin-bottom: 2rem;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            overflow: hidden;
         }
-        footer {
-            background-color: var(--color-accent);
-            color: var(--color-text);
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+        }
+        .founder-description {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .founder-name {
             text-align: center;
-            padding: 2rem 0;
+            margin-bottom: 1rem;
+        }
+        h1, h2 {
+            color: var(--color-primary);
         }
         @media screen and (max-width: 768px) {
             .nav-links {
@@ -106,7 +140,7 @@
                 right: 0px;
                 height: 92vh;
                 top: 8vh;
-                background-color: rgba(15, 15, 15, 0.9);
+                background-color: var(--color-background);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -149,16 +183,15 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%207@3x-8-RCqlUrkfdpjxpN3ApPKUeQu1uJRpN8.png" alt="Boosted Earnings Logo">
-                </a>
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
             </div>
             <ul class="nav-links">
-                <li><a href="founder.html">Founder</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#invest">Invest</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#careers">Careers</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -169,25 +202,23 @@
     </header>
 
     <main>
-        <section class="founder-content container">
-            <h1>Meet Our Founder</h1>
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0798%20copy-3ewXOtltsZFDTOhfHCo2K0fgGrrtyl.jpeg" alt="Chris Efkarpidis" class="founder-image">
-            <p>Chris Efkarpidis, founder of Boosted Earnings, faced two options: find a new gig and double his workload, or maximize his earnings to the fullest potential as a rideshare driver. He decided to take the latter. By creating a sophisticated approach to driving, he developed a performance dashboard that provides key metrics to measure and manage his performance. With this strategy, he discovered how to consistently earn far above the average income for a rideshare driver. This concept evolved into what is now the Boosted Earnings dashboard.</p>
-            <p>After earning over $1.2k in a single day, $4.2k in a week, and an impressive $178k over two years, Chris recognized the value this tool could bring to drivers who want to drive smarter and earn more. He created Boosted Earnings to empower others with the same tools and incentives to achieve similar success. Moreover, he wanted the experience to be more enjoyable by incorporating community features such as scoreboards, accolade and recognition systems, and other built-in tools to foster relationships.</p>
-            <p>Chris aspires to help gig workers earn a better living while making their lives easier.</p>
+        <section class="founder-section">
+            <div class="container">
+                <h1>Meet Our Founder</h1>
+                <div class="founder-content">
+                    <div class="founder-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0798%20copy-zP6JWMewTqshWwOVV10MuIwtE25JXc.jpeg" alt="Founder">
+                    </div>
+                    <div class="founder-description">
+                        <h2 class="founder-name">Chris Efkarpidis</h2>
+                        <p>Chris Efkarpidis, founder of Boosted Earnings, faced two options: find a new gig and double his workload, or maximize his earnings to the fullest potential as a rideshare driver. He decided to take the latter. By creating a sophisticated approach to driving, he developed a performance dashboard that provides key metrics to measure and manage his performance. With this strategy, he discovered how to consistently earn far above the average income for a rideshare driver. This concept evolved into what is now the Boosted Earnings dashboard.</p>
+                        <p>After earning over $1.2k in a single day, $4.2k in a week, and an impressive $178k over two years, Chris recognized the value this tool could bring to drivers who want to drive smarter and earn more. He created Boosted Earnings to empower others with the same tools and incentives to achieve similar success. Moreover, he wanted the experience to be more enjoyable by incorporating community features such as scoreboards, accolade and recognition systems, and other built-in tools to foster relationships.</p>
+                        <p>Chris aspires to help gig workers earn a better living while making their lives easier.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
-            <nav>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contact Us</a>
-            </nav>
-        </div>
-    </footer>
 
     <script>
         const navSlide = () => {
@@ -216,6 +247,30 @@
             const header = document.querySelector('header');
             header.classList.toggle('scrolled', window.scrollY > 10);
         });
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('light');
+            const isDarkMode = htmlElement.classList.contains('dark');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        if (savedTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+        } else if (savedTheme === 'dark') {
+            htmlElement.classList.remove('light');
+            htmlElement.classList.add('dark');
+        } else if (prefersDarkScheme.matches) {
+            htmlElement.classList.add('dark');
+        }
     </script>
 </body>
 </html>
