@@ -298,9 +298,10 @@
             </div>
             <ul class="nav-links">
                 <li><a href="founder.html">Founder</a></li>
-                <li><a href="#invest">Invest</a></li>
+                <li><a href="invest.html">Invest</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact">Contact Us</a></li>
                 <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
             </ul>
             <div class="burger">
@@ -389,13 +390,15 @@
             const navLinks = document.querySelectorAll('.nav-links li');
             
             burger.addEventListener('click', () => {
+                
                 nav.classList.toggle('nav-active');
                 
                 navLinks.forEach((link, index) => {
-                    if (link.style.animation) 
+                    if (link.style.animation) {
                         link.style.animation = '';
-                    else
+                    } else {
                         link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
                 });
                 
                 burger.classList.toggle('toggle');
