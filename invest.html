@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invest - Boosted Earnings</title>
+    <style>
+        :root {
+            --color-primary: #EDCA3F;
+            --color-secondary: #CA9825;
+            --color-background: #0F0F0F;
+            --color-text: #FFFFFF;
+            --color-text-muted: #E0E0E0;
+            --color-accent: #434343;
+        }
+        .light {
+            --color-background: #FFFFFF;
+            --color-text: #1A1A1A;
+            --color-text-muted: #555555;
+            --color-accent: #E0E0E0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        .light header {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+        .logo img.light-logo {
+            display: none;
+        }
+        .light .logo img.dark-logo {
+            display: none;
+        }
+        .light .logo img.light-logo {
+            display: inline;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-primary);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            color: var(--color-text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .theme-toggle:hover {
+            color: var(--color-primary);
+        }
+        main {
+            padding: 8rem 0 4rem;
+        }
+        h1, h2, h3 {
+            color: var(--color-primary);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .disclaimer {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--color-accent);
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+        .invest-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--color-primary);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-text);
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .investor-type-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.25rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 40px;
+        }
+        .investor-type-toggle input[type="radio"] {
+            display: none;
+        }
+        .investor-type-toggle label {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .investor-type-toggle input[type="radio"]:checked + label {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .investor-type-toggle input[type="radio"]:not(:checked) + label {
+            color: var(--color-text);
+        }
+        .investor-description {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+        .accredited-info {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .accredited-info a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+        .accredited-info a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        .checkbox-group label {
+            display: inline;
+            font-size: 0.9rem;
+        }
+        .cta-button {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .cta-button:hover {
+            background-color: var(--color-secondary);
+        }
+        .share-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .share-icon:hover {
+            background-color: var(--color-secondary);
+        }
+        footer {
+            background-color: var(--color-background);
+            color: var(--color-text-muted);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--color-accent);
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--color-primary);
+        }
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0px;
+                height: 92vh;
+                top: 8vh;
+                background-color: var(--color-background);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+            .nav-links li {
+                opacity: 0;
+            }
+            .burger {
+                display: block;
+            }
+            footer .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        .nav-active {
+            transform: translateX(0%);
+        }
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px,6px);
+        }
+        .toggle .line2 {
+            opacity: 0;
+        }
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px,-6px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="founder.html">Founder</a></li>
+                <li><a href="invest.html">Invest</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Accelerate the Future of Technology for Gig Workers</h1>
+            <div class="invest-form">
+                <form id="invest-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Investor Type</label>
+                        <div class="investor-type-toggle">
+                            <input type="radio" id="regular" name="investorType" value="regular" checked>
+                            <label for="regular">Regular</label>
+                            <input type="radio" id="accredited" name="investorType" value="accredited">
+                            <label for="accredited">Accredited</label>
+                        </div>
+                        <div class="accredited-info">
+                            <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-3" target="_blank" rel="noopener noreferrer">What is an accredited investor?</a>
+                        </div>
+                        <div id="regularInvestorDescription" class="investor-description">
+                            If your net worth exceeds $1 million or your annual income is over $200,000, you likely qualify as an accredited investor.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="heard-from">How did you hear about us?</label>
+                        <select id="heard-from" name="heard-from" required>
+                            <option value="">Select an option</option>
+                            <option value="social-media">Social Media (e.g., LinkedIn, Instagram, Twitter)</option>
+                            <option value="online-search">Online Search (e.g., Google)</option>
+                            <option value="word-of-mouth">Word of Mouth / Referral</option>
+                            <option value="news-article">News Article or Blog</option>
+                            <option value="email-campaign">Email Campaign / Newsletter</option>
+                            <option value="advertisement">Advertisement (e.g., Billboard, Online Ad)</option>
+                            <option value="met-founder">Met Chris Efkarpidis, Founder</option>
+                            <option value="business-event">Business Event / Conference</option>
+                            <option value="other">Other (please specify)</option>
+                        </select>
+                    </div>
+                    <div id="other-description" class="form-group" style="display: none;">
+                        <label for="other-heard-from">Please  specify how you heard about us:</label>
+                        <textarea id="other-heard-from" name="other-heard-from"></textarea>
+                    </div>
+                    <div class="disclaimer">
+                        <p>This is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities or investments.</p>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="disclaimer-checkbox" name="disclaimer-checkbox" required>
+                        <label for="disclaimer-checkbox">I confirm that I have read and understood the disclaimer.</label>
+                    </div>
+                    <button type="submit" class="cta-button">Submit Interest</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="share-icon" id="shareButton" title="Share this page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+            <nav>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+            
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+                
+                burger.classList.toggle('toggle');
+            });
+        }
+        
+        navSlide();
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        document.getElementById('invest-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const disclaimerCheckbox = document.getElementById('disclaimer-checkbox');
+            if (!disclaimerCheckbox.checked) {
+                alert('Please confirm that you have read and understood the disclaimer before submitting.');
+                return;
+            }
+            
+            var formData = new FormData(this);
+            
+            // Here you would typically send the data to your backend
+            console.log('Form submitted:', Object.fromEntries(formData));
+            
+            // For demonstration purposes, we'll just log a success message
+            alert('Thank you for your interest in investing with Boosted Earnings. We will contact you shortly.');
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('light');
+            const isDarkMode = htmlElement.classList.contains('dark');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        if (savedTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+        } else if (savedTheme === 'dark') {
+            htmlElement.classList.remove('light');
+            htmlElement.classList.add('dark');
+        } else if (prefersDarkScheme.matches) {
+            htmlElement.classList.add('dark');
+        }
+
+        // Share functionality
+        document.getElementById('shareButton').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Invest in Boosted Earnings',
+                    text: 'Join us in revolutionizing the rideshare industry. Invest in Boosted Earnings!',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(console.error);
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                prompt('Copy this link to share:', window.location.href);
+            }
+        });
+
+        // Investor type description toggle
+        const regularRadio = document.getElementById('regular');
+        const accreditedRadio = document.getElementById('accredited');
+        const regularDescription = document.getElementById('regularInvestorDescription');
+
+        function toggleDescription() {
+            if (regularRadio.checked) {
+                regularDescription.style.display = 'block';
+            } else {
+                regularDescription.style.display = 'none';
+            }
+        }
+
+        regularRadio.addEventListener('change', toggleDescription);
+        accreditedRadio.addEventListener('change', toggleDescription);
+
+        // Initial check
+        toggleDescription();
+
+        // Show/hide "Other" description box
+        const heardFromSelect = document.getElementById('heard-from');
+        const otherDescription = document.getElementById('other-description');
+
+        heardFromSelect.addEventListener('change', function() {
+            if (this.value === 'other') {
+                otherDescription.style.display = 'block';
+            } else {
+                otherDescription.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
