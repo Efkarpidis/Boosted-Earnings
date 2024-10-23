@@ -51,6 +51,10 @@
             align-items: center;
             padding: 1rem 0;
         }
+        .logo {
+            display: block;
+            text-decoration: none;
+        }
         .logo img {
             height: 40px;
             width: auto;
@@ -335,12 +339,11 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
-            </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
                 <li><a href="founder.html">Founder</a></li>
                 <li><a href="invest.html">Invest</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
@@ -394,12 +397,12 @@
                             <option value="email-campaign">Email Campaign / Newsletter</option>
                             <option value="advertisement">Advertisement (e.g., Billboard, Online Ad)</option>
                             <option value="met-founder">Met Chris Efkarpidis, Founder</option>
-                            <option value="business-event">Business Event / Conference</option>
+                            <option  value="business-event">Business Event / Conference</option>
                             <option value="other">Other (please specify)</option>
                         </select>
                     </div>
                     <div id="other-description" class="form-group" style="display: none;">
-                        <label for="other-heard-from">Please  specify how you heard about us:</label>
+                        <label for="other-heard-from">Please specify how you heard about us:</label>
                         <textarea id="other-heard-from" name="other-heard-from"></textarea>
                     </div>
                     <div class="disclaimer">
