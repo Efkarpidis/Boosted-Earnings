@@ -12,6 +12,7 @@
         --color-text: #E0E0E0;
         --color-text-muted: #B1B1B1;
         --color-accent: #434343;
+        --color-tagline: #FFD700; /* New variable for tagline color */
     }
     .light {
         --color-background: #FFFFFF;
@@ -121,9 +122,10 @@
     .tagline {
         font-size: 1.4rem;
         font-weight: bold;
-        color: var(--color-secondary);
+        color: var(--color-tagline); /* Updated to use the new tagline color */
         margin: 1.5rem 0;
         display: inline-block;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Added subtle text shadow for better visibility */
     }
     .cta-form {
         display: flex;
@@ -378,7 +380,7 @@
         <nav>
             <a href="#">Terms of Service</a>
             <a href="#">Privacy Policy</a>
-            <a href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
+            <a  href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
         </nav>
     </div>
 </footer>
@@ -390,9 +392,6 @@
         const navLinks = document.querySelectorAll('.nav-links li');
         
         burger.addEventListener('click', () => {
-            
-            
-            
             nav.classList.toggle('nav-active');
             
             navLinks.forEach((link, index) => {
