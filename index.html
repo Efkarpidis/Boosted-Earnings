@@ -12,7 +12,7 @@
         --color-text: #E0E0E0;
         --color-text-muted: #B1B1B1;
         --color-accent: #434343;
-        --color-tagline: #FFD700; /* New variable for tagline color */
+        --color-tagline: #FFD700;
     }
     .light {
         --color-background: #FFFFFF;
@@ -122,10 +122,10 @@
     .tagline {
         font-size: 1.4rem;
         font-weight: bold;
-        color: var(--color-tagline); /* Updated to use the new tagline color */
+        color: var(--color-tagline);
         margin: 1.5rem 0;
         display: inline-block;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Added subtle text shadow for better visibility */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
     .cta-form {
         display: flex;
@@ -355,8 +355,12 @@
                 </div>
                 <div class="feature-card">
                     <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="#EDCA3F" stroke-width="2"/>
-                        <path d="M12 6V12L16 14" stroke="#EDCA3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="2" y="4" width="20" height="16" rx="2" stroke="#EDCA3F" stroke-width="2"/>
+                        <line x1="2" y1="8" x2="22" y2="8" stroke="#EDCA3F" stroke-width="2"/>
+                        <line x1="6" y1="12" x2="6" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                        <line x1="10" y1="12" x2="10" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                        <line x1="14" y1="12" x2="14" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                        <line x1="18" y1="12" x2="18" y2="18" stroke="#EDCA3F" stroke-width="2"/>
                     </svg>
                     <h3>Gamification Experience</h3>
                     <p>Make your driving shifts more engaging and fun with our interactive challenges and rewards.</p>
@@ -368,7 +372,7 @@
     <section id="contact">
         <div class="container">
             <h2>Ready to Boost Your Earnings?</h2>
-            <p>Join our community of drivers who are maximizing their potential with Boosted Earnings.</p>
+            <p>Join  our community of drivers who are maximizing their potential with Boosted Earnings.</p>
             <a href="#" class="cta-button">Get Early Access Now</a>
         </div>
     </section>
@@ -380,7 +384,7 @@
         <nav>
             <a href="#">Terms of Service</a>
             <a href="#">Privacy Policy</a>
-            <a  href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
+            <a href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
         </nav>
     </div>
 </footer>
