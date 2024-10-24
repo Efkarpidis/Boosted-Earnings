@@ -29,6 +29,9 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             width: 90%;
@@ -153,6 +156,35 @@
             height: 24px;
             fill: var(--color-primary);
         }
+        footer {
+            background-color: var(--color-background);
+            color: var(--color-text-muted);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--color-accent);
+            margin-top: auto;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--color-primary);
+        }
         @media screen and (max-width: 768px) {
             .nav-links {
                 position: absolute;
@@ -172,6 +204,10 @@
             }
             .burger {
                 display: block;
+            }
+            footer .container {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
         .nav-active {
@@ -246,6 +282,17 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+            <nav>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
+            </nav>
+        </div>
+    </footer>
 
     <script>
         const navSlide = () => {
