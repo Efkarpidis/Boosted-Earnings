@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invest - Boosted Earnings</title>
+    <title>Invest in Boosted Earnings - Revolutionizing Rideshare Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <style>
         :root {
             --color-primary: #EDCA3F;
@@ -73,6 +74,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            list-style-type: none;
         }
         .nav-links a {
             color: var(--color-text);
@@ -107,24 +109,70 @@
             color: var(--color-primary);
         }
         main {
-            padding: 8rem 0 4rem;
+            padding: 0 0 4rem;
         }
         h1, h2, h3 {
             color: var(--color-primary);
         }
         h1 {
+            font-size: 2.5rem;
             text-align: center;
             margin-bottom: 2rem;
         }
-        .disclaimer {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--color-accent);
-            border-radius: 5px;
-            padding: 1rem;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero {
+            text-align: center;
+            padding: 8rem 0 4rem;
+            background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.8)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AdobeStock_842184698-bEDHAYvJU7AEUI1fyfhGSnREVSA3SQ.jpg') no-repeat center center;
+            background-size: cover;
+            margin-bottom: 4rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            font-style: italic;
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: var(--color-secondary);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .feature {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .feature h3 {
+            margin-top: 0;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
         .invest-form {
             background-color: rgba(255, 255, 255, 0.05);
@@ -144,6 +192,7 @@
         }
         input[type="text"],
         input[type="email"],
+        input[type="tel"],
         select,
         textarea {
             width: 100%;
@@ -161,20 +210,22 @@
         .investor-type-toggle {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 25px;
             padding: 0.25rem;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            height: 40px;
         }
         .investor-type-toggle input[type="radio"] {
             display: none;
         }
         .investor-type-toggle label {
             flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 0.5rem 1rem;
             cursor: pointer;
@@ -183,11 +234,11 @@
             z-index: 1;
             border-radius: 20px;
             font-size: 0.9rem;
+            margin: 0;
         }
         .investor-type-toggle input[type="radio"]:checked + label {
             background-color: var(--color-primary);
             color: var(--color-background);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         .investor-type-toggle input[type="radio"]:not(:checked) + label {
             color: var(--color-text);
@@ -227,20 +278,15 @@
             display: inline;
             font-size: 0.9rem;
         }
-        .cta-button {
-            background-color: var(--color-primary);
-            color: var(--color-background);
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
+        .disclaimer {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--color-accent);
             border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-        .cta-button:hover {
-            background-color: var(--color-secondary);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
         }
         .share-icon {
             position: fixed;
@@ -287,6 +333,41 @@
         }
         footer a:hover {
             color: var(--color-primary);
+        }
+        .iti {
+            width: 100%;
+        }
+        .iti__flag {
+            background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/img/flags.png");
+        }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .iti__flag {
+                background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/img/flags@2x.png");
+            }
+        }
+        /* Custom styles for intl-tel-input */
+        .iti__country-list {
+            max-width: 20rem;
+            background-color: var(--color-background);
+            border-color: var(--color-accent);
+        }
+        .iti__country {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+        }
+        .iti__flag-box {
+            margin-right: 10px;
+        }
+        .iti__country-name {
+            margin-right: 5px;
+            color: var(--color-text);
+        }
+        .iti__dial-code {
+            color: var(--color-text-muted);
+        }
+        .iti__selected-flag {
+            background-color: rgba(255, 255, 255, 0.1);
         }
         @media screen and (max-width: 768px) {
             .nav-links {
@@ -342,7 +423,7 @@
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+                <img  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
             </a>
             <ul class="nav-links">
                 <li><a href="founder.html">Founder</a></li>
@@ -361,10 +442,44 @@
     </header>
 
     <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Invest in the Future of Rideshare Technology</h1>
+                <p>Join us in revolutionizing the gig economy and empowering drivers with cutting-edge tools for success.</p>
+                <a href="#invest-form" class="cta-button">Invest Now</a>
+            </div>
+        </section>
+
         <section class="container">
-            <h1>Accelerate the Future of Technology for Gig Workers</h1>
-            <div class="invest-form">
-                <form id="invest-form">
+            <h2>Why Invest in Boosted Earnings?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">💼</div>
+                    <h3>Market Opportunity</h3>
+                    <p>Tap into the rapidly growing gig economy market, projected to double in size from $556B to 1B+ by 2028.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovative Technology</h3>
+                    <p>Our platform optimizes earnings and enhances the driver experience.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Growth Potential</h3>
+                    <p>Be part of a scalable solution with potential for rapid user adoption and expansion.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Social Impact</h3>
+                    <p>Support the empowerment of gig workers and contribute to a more equitable economy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2>Invest in Boosted Earnings</h2>
+            <div class="invest-form" id="invest-form">
+                <form id="investment-form">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" required>
@@ -372,6 +487,10 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label>Investor Type</label>
@@ -400,7 +519,7 @@
                             <option value="advertisement">Advertisement (e.g., Billboard, Online Ad)</option>
                             <option value="met-founder">Met Chris Efkarpidis, Founder</option>
                             <option value="business-event">Business Event / Conference</option>
-                            <option value="other">Other  (please specify)</option>
+                            <option value="other">Other (please specify)</option>
                         </select>
                     </div>
                     <div id="other-description" class="form-group" style="display: none;">
@@ -441,6 +560,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
         const navSlide = () => {
             const burger = document.querySelector('.burger');
@@ -469,7 +589,7 @@
             header.classList.toggle('scrolled', window.scrollY > 10);
         });
 
-        document.getElementById('invest-form').addEventListener('submit', function(e) {
+        document.getElementById('investment-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const disclaimerCheckbox = document.getElementById('disclaimer-checkbox');
@@ -556,6 +676,20 @@
             } else {
                 otherDescription.style.display = 'none';
             }
+        });
+
+        // Initialize intl-tel-input
+        const phoneInput = document.querySelector("#phone");
+        window.intlTelInput(phoneInput, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            separateDialCode: true,
+            initialCountry: "auto",
+            geoIpLookup: function(success, failure) {
+                fetch("https://ipapi.co/json")
+                    .then(response => response.json())
+                    .then(data => success(data.country_code))
+                    .catch(() => success("us"));
+            },
         });
     </script>
 </body>
