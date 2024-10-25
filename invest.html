@@ -418,6 +418,12 @@
         .toggle .line3 {
             transform: rotate(45deg) translate(-5px,-6px);
         }
+        /* Add this new style for the submit button container */
+        .submit-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -425,7 +431,7 @@
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
-                <img  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+                <img    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
             </a>
             <ul class="nav-links">
                 <li><a href="founder.html">Founder</a></li>
@@ -535,7 +541,9 @@
                         <input type="checkbox" id="disclaimer-checkbox" name="disclaimer-checkbox" required>
                         <label for="disclaimer-checkbox">I confirm that I have read and understood the disclaimer.</label>
                     </div>
-                    <button type="submit" class="cta-button">Submit Interest</button>
+                    <div class="submit-button-container">
+                        <button type="submit" class="cta-button">Submit Interest</button>
+                    </div>
                 </form>
             </div>
         </section>
