@@ -122,6 +122,7 @@
         h2 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
         .hero {
             text-align: center;
@@ -478,7 +479,7 @@
         </section>
 
         <section class="container">
-            <h2>Invest in Boosted Earnings</h2>
+            <h2>Accelerate Our Growth</h2>
             <div class="invest-form" id="invest-form">
                 <form id="investment-form">
                     <div class="form-group">
