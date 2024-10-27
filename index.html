@@ -215,7 +215,7 @@ h1, h2, h3 {
 }
 #contact .image-content {
     flex: 1;
-    max-width: 600px; /* Increased from 400px */
+    max-width: 600px;
 }
 #contact img {
     width: 100%;
@@ -242,6 +242,7 @@ footer p {
 footer nav {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
 }
 footer a {
     color: var(--color-text-muted);
@@ -250,6 +251,10 @@ footer a {
 }
 footer a:hover {
     color: var(--color-primary);
+}
+footer .mail-icon {
+    width: 24px;
+    height: 24px;
 }
 @media screen and (max-width: 768px) {
     .nav-links {
@@ -414,10 +419,11 @@ footer a:hover {
                 </svg>
                 <h3>Maximize Your Earnings</h3>
                 <p>Boost your earnings with our strategic tools to maximize your earning potential.</p>
+            
             </div>
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#EDCA3F"      stroke-width="2"/>
+                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#EDCA3F" stroke-width="2"/>
                     <line x1="2" y1="8" x2="22" y2="8" stroke="#EDCA3F" stroke-width="2"/>
                     <line x1="6" y1="12" x2="6" y2="18" stroke="#EDCA3F" stroke-width="2"/>
                     <line x1="10" y1="12" x2="10" y2="18" stroke="#EDCA3F" stroke-width="2"/>
@@ -466,7 +472,12 @@ footer a:hover {
     <nav>
         <a href="#">Terms of Service</a>
         <a href="#">Privacy Policy</a>
-        <a href="mailto:connect@boostedearnings.com">connect@boostedearnings.com</a>
+        <a href="mailto:connect@boostedearnings.com" aria-label="Email us">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+        </a>
     </nav>
 </div>
 </footer>
