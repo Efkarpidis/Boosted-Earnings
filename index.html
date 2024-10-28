@@ -356,6 +356,43 @@ footer .mail-icon {
         max-width: 50%;
     }
 }
+/* Styles for the new "Make it Your Reality" section */
+.reality-section {
+    background-color: var(--color-background);
+    padding: 4rem 0;
+    text-align: center;
+}
+.reality-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.reality-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.reality-text {
+    max-width: 600px;
+}
+.reality-headline {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+@media (min-width: 768px) {
+    .reality-content {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .reality-image {
+        max-width: 50%;
+    }
+}
 </style>
 </head>
 <body>
@@ -410,7 +447,7 @@ footer .mail-icon {
                 <p>Measure and manage your performance stats in real-time.</p>
             </div>
             <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none"   xmlns="http://www.w3.org/2000/svg">
                     <rect x="2" y="20" width="2" height="2" fill="#EDCA3F"/>
                     <rect x="6" y="16" width="2" height="6" fill="#EDCA3F"/>
                     <rect x="10" y="12" width="2" height="10" fill="#EDCA3F"/>
@@ -419,7 +456,6 @@ footer .mail-icon {
                 </svg>
                 <h3>Maximize Your Earnings</h3>
                 <p>Boost your earnings with our strategic tools to maximize your earning potential.</p>
-            
             </div>
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -445,6 +481,18 @@ footer .mail-icon {
             <div class="earnings-text">
                 <h2>Real Earnings, Real Results</h2>
                 <p>See the potential of what you can earn with our platform. This real earnings breakdown shows how the Founder, Chris Efkarpidis made $4,259.38 in just one week using his dashboard. With our platform, you can optimize your time, take advantage of promotions, and increase your tips, all leading to significantly higher income.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reality-section">
+    <div class="container">
+        <h2 class="reality-headline">Make it Your Reality</h2>
+        <div class="reality-content">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202024-10-27%20at%208.37.01%E2%80%AFPM-JYulAF6rjqr6cLJeWRAc4Pj9wKfGbi.png" alt="Driver checking earnings of $4,259.38 on smartphone while in car" class="reality-image">
+            <div class="reality-text">
+                <p>With us, you can turn your driving time into a lucrative opportunity. Our platform empowers you to measure and manage your earnings in real-time, make sophisticated, data-driven decisions, and maximize your income potential. Don't just dream of better earnings—make them your everyday reality with our innovative tools and insights to help you consistently improve.</p>
             </div>
         </div>
     </div>
