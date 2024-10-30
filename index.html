@@ -6,613 +6,606 @@
 <title>Boosted Earnings - Elevate Your Rideshare Experience</title>
 <style>
 :root {
---color-primary: #EDCA3F;
---color-secondary: #CA9825;
---color-background: #0F0F0F;
---color-text: #E0E0E0;
---color-text-muted: #B1B1B1;
---color-accent: #434343;
---color-tagline: #FFD700;
+    --color-primary: #EDCA3F;
+    --color-secondary: #CA9825;
+    --color-background: #0F0F0F;
+    --color-text: #E0E0E0;
+    --color-text-muted: #B1B1B1;
+    --color-accent: #434343;
+    --color-tagline: #FFD700;
 }
 .light {
---color-background: #FFFFFF;
---color-text: #1A1A1A;
---color-text-muted: #555555;
---color-accent: #E0E0E0;
+    --color-background: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #555555;
+    --color-accent: #E0E0E0;
 }
 body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-color: var(--color-text);
-background-color: var(--color-background);
-margin: 0;
-padding: 0;
-transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .container {
-width: 90%;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 header {
-background-color: rgba(15, 15, 15, 0.8);
-backdrop-filter: blur(10px);
-position: fixed;
-width: 100%;
-z-index: 1000;
-transition: background-color 0.3s ease;
+    background-color: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 .light header {
-background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 nav {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
 }
 .logo img {
-height: 40px;
-width: auto;
-transition: opacity 0.3s ease;
+    height: 40px;
+    width: auto;
+    transition: opacity 0.3s ease;
 }
 .logo img.light-logo {
-display: none;
+    display: none;
 }
 .light .logo img.dark-logo {
-display: none;
+    display: none;
 }
 .light .logo img.light-logo {
-display: inline;
+    display: inline;
 }
 .nav-links {
-display: flex;
-gap: 2rem;
-align-items: center;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
 .nav-links a {
-color: var(--color-text);
-text-decoration: none;
-font-weight: bold;
-transition: color 0.3s ease;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 .nav-links a:hover {
-color: var(--color-primary);
+    color: var(--color-primary);
 }
 .burger {
-display: none;
-cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
 .burger div {
-width: 25px;
-height: 3px;
-background-color: var(--color-primary);
-margin: 5px;
-transition: all 0.3s ease;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 5px;
+    transition: all 0.3s ease;
 }
 .theme-toggle {
-background: none;
-border: none;
-cursor: pointer;
-padding: 0;
-color: var(--color-text);
-font-size: 1.5rem;
-transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
 }
 .theme-toggle:hover {
-color: var(--color-primary);
+    color: var(--color-primary);
 }
 .hero {
-padding: 8rem 0 4rem;
-text-align: center;
+    padding: 8rem 0 4rem;
+    text-align: center;
 }
 h1, h2, h3 {
-color: var(--color-primary);
+    color: var(--color-primary);
 }
 .hero h1 {
-font-size: 3rem;
-margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 .hero p {
-font-size: 1.2rem;
-max-width: 600px;
-margin: 0 auto 1rem;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 1rem;
 }
 .tagline {
-font-size: 1.4rem;
-font-weight: bold;
-color: var(--color-tagline);
-margin: 1.5rem 0;
-display: inline-block;
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-tagline);
+    margin: 1.5rem 0;
+    display: inline-block;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .cta-form {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1rem;
-max-width: 400px;
-margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto;
 }
 .cta-form input[type="email"],
-.cta-form select,
-.cta-form input[type="text"] {
-width: 100%;
-padding: 0.75rem;
-border: 2px solid var(--color-primary);
-background-color: rgba(255, 255, 255, 0.1);
-color: var(--color-text);
-border-radius: 5px;
+.cta-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--color-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    border-radius: 5px;
 }
 .cta-button {
-background-color: var(--color-primary);
-color: var(--color-background);
-padding: 0.75rem 1.5rem;
-text-decoration: none;
-border-radius: 5px;
-font-weight: bold;
-transition: all 0.3s ease;
-border: none;
-cursor: pointer;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 .cta-button:hover {
-background-color: var(--color-secondary);
+    background-color: var(--color-secondary);
 }
 .features {
-padding: 2rem 0;
-text-align: center;
+    padding: 2rem 0;
+    text-align: center;
 }
 .features h2 {
-font-size: 2.5rem;
-margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 .features > p {
-font-size: 1.2rem;
-max-width: 800px;
-margin: 0 auto 2rem;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
 }
 .feature-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 .feature-card {
-background-color: rgba(67, 67, 67, 0.1);
-border: 1px solid var(--color-accent);
-border-radius: 10px;
-padding: 2rem;
-text-align: center;
-transition: transform 0.3s ease;
+    background-color: rgba(67, 67, 67, 0.1);
+    border: 1px solid var(--color-accent);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 .feature-card:hover {
-transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 .feature-icon {
-width: 60px;
-height: 60px;
-margin: 0 auto 1rem;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
 }
 #contact {
-text-align: center;
-padding: 4rem 0;
+    text-align: center;
+    padding: 4rem 0;
 }
 #contact h2 {
-font-size: 2.5rem;
-margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 #contact p {
-font-size: 1.2rem;
-max-width: 600px;
-margin: 0 auto 2rem;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 #contact .content-wrapper {
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 }
 #contact .text-content {
-flex: 1;
+    flex: 1;
 }
 #contact .image-content {
-flex: 1;
-max-width: 600px;
+    flex: 1;
+    max-width: 600px;
 }
 #contact img {
-width: 100%;
-height: auto;
-border-radius: 10px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 footer {
-background-color: var(--color-background);
-color: var(--color-text-muted);
-text-align: center;
-padding: 2rem 0;
-border-top: 1px solid var(--color-accent);
+    background-color: var(--color-background);
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-accent);
 }
 footer .container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 footer p {
-margin: 0;
+    margin: 0;
 }
 footer nav {
-display: flex;
-gap: 1.5rem;
-align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 footer a {
-color: var(--color-text-muted);
-text-decoration: none;
-transition: color 0.3s ease;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 footer a:hover {
-color: var(--color-primary);
+    color: var(--color-primary);
 }
 footer .mail-icon {
-width: 24px;
-height: 24px;
+    width: 24px;
+    height: 24px;
+}
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--color-background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .burger {
+        display: block;
+    }
+    footer .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #contact .content-wrapper {
+        flex-direction: column;
+    }
+    #contact .image-content {
+        max-width: 100%;
+    }
+}
+.nav-active {
+    transform: translateX(0%);
+}
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px,-6px);
 }
 #response-message {
-margin-top: 1rem;
-font-weight: bold;
+    margin-top: 1rem;
+    font-weight: bold;
 }
 .success {
-color: #4CAF50;
+    color: #4CAF50;
 }
 .error {
-color: #F44336;
+    color: #F44336;
 }
 /* Styles for the earnings section */
 .earnings-section {
-background-color: rgba(67, 67, 67, 0.1);
-padding: 4rem 0;
-text-align: center;
+    background-color: rgba(67, 67, 67, 0.1);
+    padding: 4rem 0;
+    text-align: center;
 }
 .earnings-content {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 .earnings-image {
-max-width: 100%;
-height: auto;
-border-radius: 10px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .earnings-text {
-max-width: 600px;
+    max-width: 600px;
 }
 .earnings-headline {
-font-size: 2.5rem;
-color: var(--color-primary);
-margin-bottom: 2rem;
-margin-top: 0;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+@media (min-width: 768px) {
+    .earnings-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .earnings-image {
+        max-width: 50%;
+    }
 }
 /* Styles for the new "Make it Your Reality" section */
 .reality-section {
-background-color: var(--color-background);
-padding: 4rem 0;
-text-align: center;
+    background-color: var(--color-background);
+    padding: 4rem 0;
+    text-align: center;
 }
 .reality-content {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 .reality-image {
-max-width: 100%;
-height: auto;
-border-radius: 10px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .reality-text {
-max-width: 600px;
+    max-width: 600px;
 }
 .reality-headline {
-font-size: 2.5rem;
-color: var(--color-primary);
-margin-bottom: 2rem;
-margin-top: 0;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    margin-top: 0;
 }
-
-/* Mobile Responsive Styles */
-@media screen and (max-width: 768px) {
-.nav-links {
-position: fixed;
-right: -100%;
-top: 5rem;
-flex-direction: column;
-background-color: var(--color-background);
-width: 100%;
-text-align: center;
-transition: 0.3s;
-box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-}
-
-.nav-links.active {
-right: 0;
-}
-
-.nav-item {
-margin: 2.5rem 0;
-}
-
-.burger {
-display: block;
-}
-
-.hero h1 {
-font-size: 2rem;
-}
-
-.hero p, .tagline {
-font-size: 1rem;
-}
-
-.features h2, .earnings-headline, .reality-headline, #contact h2 {
-font-size: 2rem;
-}
-
-.feature-grid {
-grid-template-columns: 1fr;
-}
-
-.earnings-content, .reality-content, #contact .content-wrapper {
-flex-direction: column;
-}
-
-.earnings-image, .reality-image, #contact .image-content {
-max-width: 100%;
-}
-
-footer .container {
-flex-direction: column;
-gap: 1rem;
-}
-
-footer nav {
-flex-wrap: wrap;
-justify-content: center;
-}
-}
-
-@media screen and (max-width: 480px) {
-.container {
-padding: 0 10px;
-}
-
-.hero {
-padding: 6rem 0 2rem;
-}
-
-.cta-form {
-width: 100%;
-}
-
-.cta-button {
-width: 100%;
-}
+@media (min-width: 768px) {
+    .reality-content {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .reality-image {
+        max-width: 50%;
+    }
 }
 </style>
 </head>
 <body>
 <header>
 <nav class="container">
-<a href="index.html" class="logo">
-<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
-<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
-</a>
-<ul class="nav-links">
-<li><a href="founder.html">Founder</a></li>
-<li><a href="invest.html">Invest</a></li>
-<li><a href="#roadmap">Roadmap</a></li>
-<li><a href="#careers">Careers</a></li>
-<li><a href="#contact">Contact Us</a></li>
-<li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
-</ul>
-<div class="burger">
-<div class="line1"></div>
-<div class="line2"></div>
-<div class="line3"></div>
-</div>
+    <a href="index.html" class="logo">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="founder.html">Founder</a></li>
+        <li><a href="invest.html">Invest</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
+    </ul>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
 </nav>
 </header>
 
 <main>
 <section class="hero">
-<div class="container">
-<h1>Elevate Your Rideshare Experience</h1>
-<p>A drivers hub for all rideshare industry platforms. Maximize your earnings and enhance your driving experience.</p>
-<p class="tagline">Designed by a driver, for the driver.</p>
-<form id="email-form" class="cta-form">
-<input type="email" name="email" placeholder="Enter your email" required>
-<select id="country" name="country" required>
-<option value="">Select your country</option>
-<option value="US">United States</option>
-<option value="CA">Canada</option>
-<option value="UK">United Kingdom</option>
-<option value="AU">Australia</option>
-<option value="CN">China</option>
-<option value="BR">Brazil</option>
-<option value="IN">India</option>
-<option value="FR">France</option>
-<option value="DE">Germany</option>
-<option value="MX">Mexico</option>
-<option value="RU">Russia</option>
-<option value="ZA">South Africa</option>
-<option value="JP">Japan</option>
-<option value="NZ">New Zealand</option>
-<option value="Other">Other</option>
-</select>
-<input type="text" id="custom-country" name="custom-country" placeholder="Where do you drive?" style="display: none;">
-<select id="state" name="state" style="display: none;" required>
-<option value="">Select your state/region</option>
-</select>
-<select id="city" name="city" style="display: none;">
-<option value="">Select your city</option>
-</select>
-<input type="text" id="custom-city" name="custom-city" placeholder="Enter your city" style="display: none;">
-<button type="submit" class="cta-button">Gain Early Access</button>
-</form>
-<div id="response-message"></div>
-</div>
+    <div class="container">
+        <h1>Elevate Your Rideshare Experience</h1>
+        <p>A drivers hub for all rideshare industry platforms. Maximize your earnings and enhance your driving experience.</p>
+        <p class="tagline">Designed by a driver, for the driver.</p>
+        <form id="email-form" class="cta-form">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <select id="country" name="country" required>
+                <option value="">Select your country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="CN">China</option>
+                <option value="BR">Brazil</option>
+                <option value="IN">India</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="MX">Mexico</option>
+                <option value="RU">Russia</option>
+                <option value="ZA">South Africa</option>
+                <option value="JP">Japan</option>
+                <option value="NZ">New Zealand</option>
+                <option value="Other">Other</option>
+            </select>
+            <select id="state" name="state" style="display: none;" required>
+                <option value="">Select your state</option>
+                <!-- States will be populated dynamically -->
+            </select>
+            <select id="city" name="city" style="display: none;">
+                <option value="">Select your city</option>
+                <!-- Cities will  be populated dynamically -->
+            </select>
+            <button type="submit" class="cta-button">Gain Early Access</button>
+        </form>
+        <div id="response-message"></div>
+    </div>
 </section>
 
 <section class="features">
-<div class="container">
-<h2>Revolutionize Your Driving</h2>
-<p>Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.</p>
-<div class="feature-grid">
-<div class="feature-card">
-<svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="8" width="4" height="12" fill="#EDCA3F"/>
-    <rect x="10" y="12" width="4" height="8" fill="#EDCA3F"/>
-    <rect x="16" y="4" width="4"      height="16" fill="#EDCA3F"/>
-</svg>
-<h3>Performance Tracking</h3>
-<p>Measure and manage your performance stats in real-time.</p>
-</div>
-<div class="feature-card">
-<svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="20" width="2" height="2" fill="#EDCA3F"/>
-    <rect x="6" y="16" width="2" height="6" fill="#EDCA3F"/>
-    <rect x="10" y="12" width="2" height="10" fill="#EDCA3F"/>
-    <rect x="14" y="8" width="2" height="14" fill="#EDCA3F"/>
-    <rect x="18" y="4" width="2" height="18" fill="#EDCA3F"/>
-</svg>
-<h3>Maximize Your Earnings</h3>
-<p>Boost your earnings with our strategic tools to maximize your earning potential.</p>
-</div>
-<div class="feature-card">
-<svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#EDCA3F" stroke-width="2"/>
-    <line x1="2" y1="8" x2="22" y2="8" stroke="#EDCA3F" stroke-width="2"/>
-    <line x1="6" y1="12" x2="6" y2="18" stroke="#EDCA3F" stroke-width="2"/>
-    <line x1="10" y1="12" x2="10" y2="18" stroke="#EDCA3F" stroke-width="2"/>
-    <line x1="14" y1="12" x2="14" y2="18" stroke="#EDCA3F" stroke-width="2"/>
-    <line x1="18" y1="12" x2="18" y2="18" stroke="#EDCA3F" stroke-width="2"/>
-</svg>
-<h3>Gamification Experience</h3>
-<p>Make your driving shifts more engaging and fun with our interactive challenges and rewards.</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2>Revolutionize Your Driving</h2>
+        <p>Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none"    xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="8" width="4" height="12" fill="#EDCA3F"/>
+                    <rect x="10" y="12" width="4" height="8" fill="#EDCA3F"/>
+                    <rect x="16" y="4" width="4" height="16" fill="#EDCA3F"/>
+                </svg>
+                <h3>Performance Tracking</h3>
+                <p>Measure and manage your performance stats in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none"   xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="20" width="2" height="2" fill="#EDCA3F"/>
+                    <rect x="6" y="16" width="2" height="6" fill="#EDCA3F"/>
+                    <rect x="10" y="12" width="2" height="10" fill="#EDCA3F"/>
+                    <rect x="14" y="8" width="2" height="14" fill="#EDCA3F"/>
+                    <rect x="18" y="4" width="2" height="18" fill="#EDCA3F"/>
+                </svg>
+                <h3>Maximize Your Earnings</h3>
+                <p>Boost your earnings with our strategic tools to maximize your earning potential.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#EDCA3F" stroke-width="2"/>
+                    <line x1="2" y1="8" x2="22" y2="8" stroke="#EDCA3F" stroke-width="2"/>
+                    <line x1="6" y1="12" x2="6" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                    <line x1="10" y1="12" x2="10" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                    <line x1="14" y1="12" x2="14" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                    <line x1="18" y1="12" x2="18" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+                </svg>
+                <h3>Gamification Experience</h3>
+                <p>Make your driving shifts more engaging and fun with our interactive challenges and rewards.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="earnings-section">
-<div class="container">
-<h2 class="earnings-headline">Be Prepared for Opportunity</h2>
-<div class="earnings-content">
-<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4.2k-eLDhQQpHZLFZsIRGSc8YRjH3mWLvw6.jpg" alt="Earnings breakdown showing $4,259.38 total earnings" class="earnings-image">
-<div class="earnings-text">
-<h2>Real Earnings, Real Results</h2>
-<p>See the potential of what you can earn with our platform. This real earnings breakdown shows how the Founder, Chris Efkarpidis made $4,259.38 in just one week using his dashboard. With our platform, you can optimize your time, take advantage of promotions, and increase your tips, all leading to significantly higher income.</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2 class="earnings-headline">Be Prepared for Opportunity</h2>
+        <div class="earnings-content">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4.2k-eLDhQQpHZLFZsIRGSc8YRjH3mWLvw6.jpg" alt="Earnings breakdown showing $4,259.38 total earnings" class="earnings-image">
+            <div class="earnings-text">
+                <h2>Real Earnings, Real Results</h2>
+                <p>See the potential of what you can earn with our platform. This real earnings breakdown shows how the Founder, Chris Efkarpidis made $4,259.38 in just one week using his dashboard. With our platform, you can optimize your time, take advantage of promotions, and increase your tips, all leading to significantly higher income.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="reality-section">
-<div class="container">
-<h2 class="reality-headline">Make it Your Reality</h2>
-<div class="reality-content">
-<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202024-10-27%20at%208.37.01%E2%80%AFPM-JYulAF6rjqr6cLJeWRAc4Pj9wKfGbi.png" alt="Driver checking earnings of $4,259.38 on smartphone while in car" class="reality-image">
-<div class="reality-text">
-<p>With us, you can turn your driving time into a lucrative opportunity. Our platform empowers you to measure and manage your earnings in real-time, make sophisticated, data-driven decisions, and maximize your income potential. Don't just dream of better earnings—make them your everyday reality with our innovative tools and insights to help you consistently improve.</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2 class="reality-headline">Make it Your Reality</h2>
+        <div class="reality-content">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202024-10-27%20at%208.37.01%E2%80%AFPM-JYulAF6rjqr6cLJeWRAc4Pj9wKfGbi.png" alt="Driver checking earnings of $4,259.38 on smartphone while in car" class="reality-image">
+            <div class="reality-text">
+                <p>With us, you can turn your driving time into a lucrative opportunity. Our platform empowers you to measure and manage your earnings in real-time, make sophisticated, data-driven decisions, and maximize your income potential. Don't just dream of better earnings—make them your everyday reality with our innovative tools and insights to help you consistently improve.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
-<div class="container">
-<h2>Ready to Break Records?</h2>
-<div class="content-wrapper">
-<div class="text-content">
-<p>Join our community of high-achieving drivers who are setting new standards in the rideshare industry with us.</p>
-<a href="#" class="cta-button">Get Early Access Now</a>
-</div>
-<div class="image-content">
-<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/smartmockups_m2qvhdsd-TCmbBhZIbehf6BV2qG2NlrwcH2k44w.jpg" alt="Smartphone displaying Boosted Earnings leaderboard with top earner making $4,638.53" />
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2>Ready to Break Records?</h2>
+        <div class="content-wrapper">
+            <div class="text-content">
+                <p>Join our community of high-achieving drivers who are setting new standards in the rideshare industry with us.</p>
+                <a href="#" class="cta-button">Get Early Access Now</a>
+            </div>
+            <div class="image-content">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/smartmockups_m2qvhdsd-TCmbBhZIbehf6BV2qG2NlrwcH2k44w.jpg" alt="Smartphone displaying Boosted Earnings leaderboard with top earner making $4,638.53" />
+            </div>
+        </div>
+    </div>
 </section>
 </main>
 
 <footer>
 <div class="container">
-<p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
-<nav>
-<a href="#">Terms of Service</a>
-<a href="#">Privacy Policy</a>
-<a href="mailto:connect@boostedearnings.com" aria-label="Email us">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
-<rect width="20" height="16" x="2" y="4" rx="2"/>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-</svg>
-</a>
-</nav>
+    <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+    <nav>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="mailto:connect@boostedearnings.com" aria-label="Email us">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+        </a>
+    </nav>
 </div>
 </footer>
 
 <script>
 const navSlide = () => {
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
-
-burger.addEventListener('click', () => {
-nav.classList.toggle('active');
-
-navLinks.forEach((link, index) => {
-if (link.style.animation) {
-link.style.animation = '';
-} else {
-link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-}
-});
-
-burger.classList.toggle('toggle');
-});
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+        
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        });
+        
+        burger.classList.toggle('toggle');
+    });
 }
 
 navSlide();
 
 window.addEventListener('scroll', () => {
-const header = document.querySelector('header');
-header.classList.toggle('scrolled', window.scrollY > 10);
+    const header = document.querySelector('header');
+    header.classList.toggle('scrolled', window.scrollY > 10);
 });
 
 document.getElementById('email-form').addEventListener('submit', function(e) {
-e.preventDefault();
-
-var formData = new FormData(this);
-
-fetch('submit_email.php', {
-method: 'POST',
-body: formData
-})
-.then(response => response.json())
-.then(data => {
-var messageElement = document.getElementById('response-message');
-messageElement.textContent = data.message;
-messageElement.className = data.success ? 'success' : 'error';
-})
-.catch(error => {
-console.error('Error:', error);
-var messageElement = document.getElementById('response-message');
-messageElement.textContent = 'An error occurred. Please try again.';
-messageElement.className = 'error';
-});
+    e.preventDefault();
+    
+    var formData = new FormData(this);
+    
+    fetch('submit_email.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        var messageElement = document.getElementById('response-message');
+        messageElement.textContent = data.message;
+        messageElement.className = data.success ? 'success' : 'error';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        var messageElement = document.getElementById('response-message');
+        messageElement.textContent = 'An error occurred. Please try again.';
+        messageElement.className = 'error';
+    });
 });
 
 // Theme toggle functionality
@@ -620,9 +613,9 @@ const themeToggle = document.querySelector('.theme-toggle');
 const htmlElement = document.documentElement;
 
 themeToggle.addEventListener('click', () => {
-htmlElement.classList.toggle('light');
-const isDarkMode = htmlElement.classList.contains('dark');
-localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    htmlElement.classList.toggle('light');
+    const isDarkMode = htmlElement.classList.contains('dark');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 });
 
 // Check for saved theme preference or prefer-color-scheme
@@ -630,236 +623,69 @@ const savedTheme = localStorage.getItem('theme');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
 if (savedTheme === 'light') {
-htmlElement.classList.remove('dark');
-htmlElement.classList.add('light');
+    htmlElement.classList.remove('dark');
+    htmlElement.classList.add('light');
 } else if (savedTheme === 'dark') {
-htmlElement.classList.remove('light');
-htmlElement.classList.add('dark');
+    htmlElement.classList.remove('light');
+    htmlElement.classList.add('dark');
 } else if (prefersDarkScheme.matches) {
-htmlElement.classList.add('dark');
+    htmlElement.classList.add('dark');
 }
 
-// Country, State/Region, and City selection logic with Lyft Rate Card integration
+// Country, State, and City selection logic
 const countrySelect = document.getElementById('country');
-const customCountryInput = document.getElementById('custom-country');
 const stateSelect = document.getElementById('state');
 const citySelect = document.getElementById('city');
-const customCityInput = document.getElementById('custom-city');
 
 const states = {
-US: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
-CA: ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan'],
-UK: ['England', 'Scotland', 'Wales', 'Northern Ireland'],
-AU: ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia', 'Tasmania', 'Australian Capital Territory', 'Northern Territory'],
-CN: ['Beijing', 'Shanghai', 'Guangdong', 'Jiangsu', 'Zhejiang', 'Sichuan', 'Hubei', 'Shandong', 'Hebei', 'Henan'],
-BR: ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Bahia', 'Paraná', 'Rio Grande do Sul', 'Pernambuco', 'Ceará', 'Pará', 'Santa Catarina'],
-IN: ['Maharashtra', 'Tamil Nadu', 'Karnataka', 'Uttar Pradesh', 'Gujarat', 'West Bengal', 'Telangana', 'Rajasthan', 'Delhi', 'Kerala'],
-FR: ['Île-de-France', 'Auvergne-Rhône-Alpes', 'Hauts-de-France', 'Provence-Alpes-Côte d\'Azur', 'Occitanie', 'Nouvelle-Aquitaine', 'Grand Est', 'Pays de la Loire', 'Bretagne', 'Normandie'],
-DE: ['Bavaria', 'North Rhine-Westphalia', 'Baden-Württemberg', 'Lower Saxony', 'Hesse', 'Saxony', 'Rhineland-Palatinate', 'Berlin', 'Schleswig-Holstein', 'Brandenburg'],
-MX: ['Mexico City', 'State of Mexico', 'Jalisco', 'Nuevo León', 'Guanajuato', 'Veracruz', 'Puebla', 'Baja California', 'Chihuahua', 'Sonora'],
-RU: ['Moscow', 'Saint Petersburg', 'Novosibirsk', 'Yekaterinburg', 'Nizhny Novgorod', 'Kazan', 'Chelyabinsk', 'Omsk', 'Samara', 'Rostov-on-Don'],
-ZA: ['Gauteng', 'KwaZulu-Natal', 'Western Cape', 'Eastern Cape', 'Limpopo', 'Mpumalanga', 'North West', 'Free State', 'Northern Cape'],
-JP: ['Tokyo', 'Osaka', 'Aichi', 'Kanagawa', 'Saitama', 'Chiba', 'Hyogo', 'Fukuoka', 'Hokkaido', 'Shizuoka'],
-NZ: ['Auckland', 'Canterbury', 'Wellington', 'Waikato', 'Bay of Plenty', 'Otago', 'Manawatu-Wanganui', 'Hawke\'s Bay', 'Taranaki', 'Northland']
+    US: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+    CA: ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan'],
+    UK: ['England', 'Scotland', 'Wales', 'Northern Ireland'],
+    AU: ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia', 'Tasmania', 'Australian Capital Territory', 'Northern Territory']
 };
 
 const cities = {
-US: {
-California: ['Los Angeles', 'San Francisco', 'San Diego', 'Orange County', 'Silicon Valley', 'Sacramento', 'Inland Empire', 'Ventura', 'Monterey', 'Santa Barbara', 'Fresno', 'Bakersfield', 'Modesto', 'Stockton', 'Merced', 'Redding', 'Chico', 'Santa Cruz', 'Napa and Sonoma County', 'Lake Tahoe', 'El Centro', 'Eureka', 'Victorville', 'Yuba City', 'San Luis Obispo', 'Eastern Sierras', 'Not listed'],
-Texas: ['Houston', 'Dallas-Fort Worth', 'Austin', 'San Antonio', 'Corpus Christi', 'El Paso', 'Waco-Killeen', 'Lubbock', 'College Station', 'Beaumont', 'Midland-Odessa', 'Laredo', 'Rio Grande Valley', 'Tyler', 'Victoria', 'Amarillo', 'Abilene', 'San Angelo', 'Marfa', 'Not listed'],
-'New York': ['New York City', 'Westchester County', 'Nassau County', 'Buffalo', 'Rochester', 'Albany', 'Suffolk County', 'Syracuse', 'Hamptons', 'Ithaca', 'Binghamton', 'Mid-Hudson', 'Utica', 'Elmira', 'Plattsburgh', 'Watertown', 'Not listed'],
-Pennsylvania: ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Allentown', 'Lancaster', 'Reading', 'Scranton', 'Erie', 'York', 'State College', 'Altoona-Johnstown Area', 'Williamsport', 'Not listed'],
-'New Mexico': ['Albuquerque', 'Santa Fe', 'Las Cruces', 'Roswell', 'Taos', 'Gallup', 'Not listed'],
-'South Dakota': ['Sioux Falls', 'Rapid City', 'Greater South Dakota', 'Aberdeen', 'Not listed'],
-Georgia: ['Atlanta', 'Savannah', 'Augusta', 'Columbus', 'Athens', 'Macon', 'Valdosta', 'Coastal Georgia', 'Albany', 'Northern Georgia', 'Toccoa', 'Dublin', 'Not listed'],
-Oklahoma: ['Oklahoma City', 'Tulsa', 'Stillwater', 'Lawton', 'Ardmore', 'Woodward', 'Not listed'],
-Louisiana: ['New Orleans', 'Baton Rouge', 'Lafayette', 'Shreveport', 'Lake Charles', 'Monroe', 'Houma', 'Alexandria', 'Not listed'],
-Oregon: ['Portland', 'Eugene', 'Salem', 'Bend', 'Corvallis', 'Medford', 'Ashland', 'Grants Pass', 'Roseburg', 'Not listed'],
-Alaska: ['Anchorage', 'Fairbanks',  'Juneau', 'Greater Alaska', 'Not listed'],
-Iowa: ['Des Moines', 'Cedar Rapids', 'Iowa City', 'Davenport', 'Sioux City', 'Ames', 'Waterloo', 'Dubuque', 'Not listed'],
-Florida: ['Miami', 'Orlando', 'Tampa Bay', 'Jacksonville', 'Fort Myers', 'Sarasota', 'Naples', 'Gainesville', 'Tallahassee', 'Pensacola', 'Port St. Lucie', 'Daytona Beach', 'Bradenton', 'Port Charlotte', 'Lakeland', 'Ocala', 'Panama City', 'Florida Keys', 'Not listed'],
-Michigan: ['Detroit', 'Ann Arbor', 'Grand Rapids', 'Lansing', 'Kalamazoo', 'Flint', 'Jackson', 'Saginaw', 'Midland', 'Northern Michigan', 'Upper Peninsula', 'Not listed'],
-Alabama: ['Birmingham', 'Huntsville', 'Mobile', 'Montgomery', 'Tuscaloosa', 'Auburn', 'Not listed'],
-'North Carolina': ['Charlotte', 'Raleigh-Durham', 'Greensboro', 'Asheville', 'Fayetteville', 'Wilmington', 'Hickory', 'Jacksonville', 'Outer Banks', 'Salisbury', 'Not listed'],
-Connecticut: ['Hartford', 'Bridgeport', 'New Haven', 'Norwich', 'Not listed'],
-Montana: ['Western Montana', 'Eastern Montana', 'Not listed'],
-'North Dakota': ['Fargo', 'Bismarck', 'Grand Forks', 'Dickinson', 'Not listed'],
-Washington: ['Seattle', 'Tacoma', 'Spokane', 'Olympia', 'Tri-Cities', 'Bellingham', 'Port Angeles', 'Yakima', 'Longview', 'Pullman', 'Greater Washington', 'Not listed'],
-Indiana: ['Indianapolis', 'Fort Wayne', 'South Bend', 'Bloomington', 'Evansville', 'Muncie', 'Gary', 'Jeffersonville', 'Terre Haute', 'Not listed'],
-Illinois: ['Chicago', 'Northeastern Illinois', 'Champaign', 'Springfield', 'Decatur', 'Bloomington', 'Kankakee', 'Southern Illinois', 'Not listed'],
-Tennessee: ['Nashville', 'Memphis', 'Chattanooga', 'Knoxville', 'Clarksville', 'Jackson', 'Johnson City', 'Cookeville', 'Not listed'],
-Idaho: ['Boise', 'Idaho Falls', 'Coeur d\'Alene', 'Not listed'],
-Massachusetts: ['Boston', 'Cape Cod', 'Worcester', 'Western Massachusetts', 'Not listed'],
-Kentucky: ['Louisville', 'Lexington', 'Bowling Green', 'Not listed'],
-Maryland: ['Baltimore', 'Eastern Maryland', 'Western Maryland', 'Not listed'],
-'South Carolina': ['Charleston', 'Greenville', 'Columbia', 'Myrtle Beach', 'Not listed'],
-Virginia: ['Virginia Beach-Hampton Roads', 'Richmond', 'Charlottesville', 'Fredericksburg', 'Roanoke', 'Lynchburg', 'Harrisonburg', 'Not listed'],
-Ohio: ['Columbus', 'Cleveland', 'Cincinnati', 'Dayton', 'Toledo', 'Youngstown', 'Not listed'],
-Colorado: ['Denver', 'Colorado Springs', 'Fort Collins', 'Resort Rockies', 'Grand Junction', 'Not listed'],
-Missouri: ['St. Louis', 'Kansas City', 'Columbia', 'Springfield', 'Not listed'],
-Minnesota: ['Minneapolis-St. Paul', 'Rochester', 'Duluth', 'Mankato', 'Greater Minnesota', 'Not listed'],
-Wisconsin: ['Milwaukee', 'Madison', 'Green Bay', 'Eau Claire', 'Janesville', 'La Crosse', 'Sheboygan-Fond du Lac Area', 'Not listed'],
-Arizona: ['Phoenix', 'Tucson', 'Flagstaff', 'Yuma', 'Lake Havasu City', 'Northern Arizona', 'Eastern Arizona', 'Not listed'],
-Nevada: ['Las Vegas', 'Reno', 'Eastern Nevada', 'Not listed'],
-Kansas: ['Wichita', 'Topeka', 'Lawrence', 'Manhattan', 'Western Kansas', 'Not listed'],
-Maine: ['Portland', 'Greater Maine', 'Not listed'],
-Hawaii: ['Honolulu', 'Maui', 'Big Island', 'Kauai', 'Not listed'],
-'West Virginia': ['Morgantown', 'Huntington', 'Martinsburg', 'Not listed'],
-Mississippi: ['Jackson', 'Gulfport-Biloxi', 'Hattiesburg', 'Oxford', 'Not listed'],
-Utah: ['Salt Lake City', 'St. George', 'Logan', 'Not listed'],
-Arkansas: ['Little Rock', 'Fayetteville', 'Not listed'],
-Nebraska: ['Omaha', 'Lincoln', 'Western Nebraska', 'Not listed'],
-'New Jersey': ['Newark', 'New Jersey', 'Not listed'],
-'Rhode Island': ['Providence', 'Not listed'],
-'New Hampshire': ['Manchester', 'Not listed'],
-Delaware: ['Greater Delaware', 'Not listed'],
-'District of Columbia': ['Washington D.C.', 'Not listed'],
-Wyoming: ['Cheyenne', 'Not listed'],
-Vermont: ['Greater Vermont', 'Not listed']
-},
-CA: {
-Ontario: ['Toronto', 'Ottawa', 'Mississauga', 'Hamilton', 'London', 'Not listed'],
-'British Columbia': ['Vancouver', 'Victoria', 'Surrey', 'Burnaby', 'Richmond', 'Not listed'],
-// Add more provinces and cities as needed
-},
-UK: {
-England: ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Leeds', 'Not listed'],
-Scotland: ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee', 'Inverness', 'Not listed'],
-// Add more countries and cities as needed
-},
-AU: {
-'New South Wales': ['Sydney', 'Newcastle', 'Wollongong', 'Central Coast', 'Maitland', 'Not listed'],
-Victoria: ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Shepparton', 'Not listed'],
-// Add more states and cities as needed
-},
-CN: {
-Beijing: ['Dongcheng', 'Xicheng', 'Chaoyang', 'Haidian', 'Fengtai', 'Not listed'],
-Shanghai: ['Pudong', 'Huangpu', 'Jing\'an', 'Xuhui', 'Changning', 'Not listed'],
-// Add more regions and cities as needed
-},
-BR: {
-'São Paulo': ['São Paulo', 'Campinas', 'Santos', 'São José dos Campos', 'Ribeirão Preto', 'Not listed'],
-'Rio de Janeiro': ['Rio de Janeiro', 'Niterói', 'São Gonçalo', 'Duque de Caxias', 'Nova Iguaçu', 'Not listed'],
-// Add more states and cities as needed
-},
-IN: {
-Maharashtra: ['Mumbai', 'Pune', 'Nagpur', 'Thane', 'Nashik', 'Not listed'],
-'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem', 'Not listed'],
-// Add more states and cities as needed
-},
-FR: {
-'Île-de-France': ['Paris', 'Boulogne-Billancourt', 'Saint-Denis', 'Versailles', 'Nanterre', 'Not listed'],
-'Auvergne-Rhône-Alpes': ['Lyon', 'Grenoble', 'Saint-Étienne', 'Clermont-Ferrand', 'Annecy', 'Not listed'],
-// Add more regions and cities as needed
-},
-DE: {
-Bavaria: ['Munich', 'Nuremberg', 'Augsburg', 'Regensburg', 'Ingolstadt', 'Not listed'],
-'North Rhine-Westphalia': ['Cologne', 'Düsseldorf', 'Dortmund', 'Essen', 'Duisburg', 'Not listed'],
-// Add more states and cities as needed
-},
-MX: {
-'Mexico City': ['Cuauhtémoc', 'Miguel Hidalgo', 'Benito Juárez', 'Coyoacán', 'Álvaro Obregón', 'Not listed'],
-'State of Mexico': ['Ecatepec', 'Nezahualcóyotl', 'Naucalpan', 'Toluca', 'Tlalnepantla', 'Not listed'],
-// Add more states and cities as needed
-},
-RU: {
-Moscow: ['Central Administrative Okrug', 'Northern Administrative Okrug', 'Southern Administrative Okrug', 'Eastern Administrative Okrug', 'Western Administrative Okrug', 'Not listed'],
-'Saint Petersburg': ['Admiralteysky District', 'Vasileostrovsky District', 'Vyborgsky District', 'Kalininsky District', 'Kirovsky District', 'Not listed'],
-// Add more regions and cities as needed
-},
-ZA: {
-Gauteng: ['Johannesburg', 'Pretoria', 'Ekurhuleni', 'Tshwane', 'West Rand', 'Not listed'],
-'KwaZulu-Natal': ['Durban', 'Pietermaritzburg', 'Newcastle', 'Richards Bay', 'Ladysmith', 'Not listed'],
-// Add more provinces and cities as needed
-},
-JP: {
-Tokyo: ['Shinjuku', 'Shibuya', 'Minato', 'Chiyoda', 'Chuo', 'Not listed'],
-Osaka: ['Osaka City', 'Sakai', 'Higashiosaka', 'Hirakata', 'Toyonaka', 'Not listed'],
-// Add more prefectures and cities as needed
-},
-NZ: {
-Auckland: ['Auckland City', 'North Shore', 'Waitakere', 'Manukau', 'Papakura', 'Not listed'],
-Canterbury: ['Christchurch', 'Timaru', 'Ashburton', 'Rangiora', 'Rolleston', 'Not listed'],
-// Add more regions and cities as needed
-}
-};
-
-// Lyft Rate Card data (example data, replace with actual data)
-const lyftRateCard = {
-'Los Angeles': { baseRate: 2.00, perMile: 0.80, perMinute: 0.12 },
-'San Francisco': { baseRate: 2.20, perMile: 0.90, perMinute: 0.15 },
-'New York City': { baseRate: 2.50, perMile: 1.00, perMinute: 0.18 },
-// Add more cities and their respective rate cards
+    US: {
+        Pennsylvania: ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Allentown', 'Lancaster', 'Reading', 'Scranton', 'Erie', 'York', 'State College', 'Altoona-Johnstown Area', 'Williamsport', 'Not listed']
+    }
 };
 
 countrySelect.addEventListener('change', function() {
-const selectedCountry = this.value;
-stateSelect.innerHTML = '<option value="">Select your state/region</option>';
-citySelect.innerHTML = '<option value="">Select your city</option>';
-customCityInput.style.display = 'none';
-customCityInput.value = '';
-
-if (selectedCountry === 'Other') {
-customCountryInput.style.display = 'block';
-customCountryInput.required = true;
-stateSelect.style.display = 'none';
-citySelect.style.display = 'none';
-} else {
-customCountryInput.style.display = 'none';
-customCountryInput.required = false;
-
-if (states[selectedCountry]) {
-stateSelect.style.display = 'block';
-states[selectedCountry].forEach(state => {
-const option = document.createElement('option');
-option.value = state;
-option.textContent = state;
-stateSelect.appendChild(option);
-});
-} else {
-stateSelect.style.display = 'none';
-citySelect.style.display = 'none';
-}
-}
+    const selectedCountry = this.value;
+    stateSelect.innerHTML = '<option value="">Select your state</option>';
+    citySelect.innerHTML = '<option value="">Select your city</option>';
+    
+    if (states[selectedCountry]) {
+        stateSelect.style.display = 'block';
+        states[selectedCountry].forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
+    } else {
+        stateSelect.style.display = 'none';
+    }
+    
+    citySelect.style.display = 'none';
 });
 
 stateSelect.addEventListener('change', function() {
-const selectedCountry = countrySelect.value;
-const selectedState = this.value;
-citySelect.innerHTML = '<option value="">Select your city</option>';
-customCityInput.style.display = 'none';
-customCityInput.value = '';
-
-if (cities[selectedCountry] && cities[selectedCountry][selectedState]) {
-citySelect.style.display = 'block';
-cities[selectedCountry][selectedState].forEach(city => {
-const option = document.createElement('option');
-option.value = city;
-option.textContent = city;
-citySelect.appendChild(option);
-});
-} else {
-citySelect.style.display = 'none';
-}
-});
-
-citySelect.addEventListener('change', function() {
-const selectedCity = this.value;
-if (selectedCity === 'Not listed') {
-customCityInput.style.display = 'block';
-customCityInput.required = true;
-} else {
-customCityInput.style.display = 'none';
-customCityInput.required = false;
-}
-
-if (lyftRateCard[selectedCity]) {
-const rates = lyftRateCard[selectedCity];
-console.log(`Lyft rates for ${selectedCity}:`, rates);
-// You can use these rates to update the UI or perform calculations
-} else {
-console.log(`No Lyft rate data available for ${selectedCity}`);
-}
+    const selectedCountry = countrySelect.value;
+    const selectedState = this.value;
+    citySelect.innerHTML = '<option value="">Select your city</option>';
+    
+    if (cities[selectedCountry] && cities[selectedCountry][selectedState]) {
+        citySelect.style.display = 'block';
+        cities[selectedCountry][selectedState].forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+    } else {
+        citySelect.style.display = 'none';
+    }
 });
 </script>
 </body>
