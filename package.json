@@ -1,0 +1,17 @@
+{
+  "name": "boosted-earnings",
+  "version": "1.0.0",
+  "description": "Boosted Earnings web application",
+  "main": "server.js",
+  "dependencies": {
+    "firebase": "^8.10.1",
+    "firebase-admin": "^11.0.0"
+  },
+  "devDependencies": {
+    "firebase-tools": "^12.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "deploy": "firebase deploy"
+  }
+}
