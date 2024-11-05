@@ -610,36 +610,42 @@ window.addEventListener('scroll', () => {
 
 document.getElementById('email-form').addEventListener('submit', function(e) {
     e.preventDefault();
+    console.log('Form submitted');
     
     var formData = new FormData(this);
     var data = Object.fromEntries(formData);
+    console.log('Form data:', data);
     
-    // Get a reference to the Firestore database
-    var db = firebase.firestore();
-    
-    // Add the form data to a 'submissions' collection
-    db.collection("submissions").add({
-        email: data.email,
-        country: data.country,
-        state: data.state,
-        city: data.city,
-        manual_country: data.manual_country,
-        manual_city: data.manual_city,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-        var messageElement = document.getElementById('response-message');
-        messageElement.textContent = 'Thank you for your interest! We\'ll be in touch soon.';
-        messageElement.className = 'success';
-        this.reset();
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-        var messageElement = document.getElementById('response-message');
-        messageElement.textContent = 'An error occurred. Please try again.';
-        messageElement.className = 'error';
-    });
+    // Small delay to ensure Firebase is fully initialized
+    setTimeout(() => {
+        // Get a reference to the Firestore database
+        var db = firebase.firestore();
+        console.log('Firestore reference obtained');
+        
+        // Add the form data to a 'submissions' collection
+        db.collection("submissions").add({
+            email: data.email,
+            country: data.country,
+            state: data.state,
+            city: data.city,
+            manual_country: data.manual_country,
+            manual_city: data.manual_city,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+            var messageElement = document.getElementById('response-message');
+            messageElement.textContent = 'Thank you for your interest! We\'ll be in touch soon.';
+            messageElement.className = 'success';
+            this.reset();
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+            var messageElement = document.getElementById('response-message');
+            messageElement.textContent = 'An error occurred. Please try again.';
+            messageElement.className = 'error';
+        });
+    }, 1000); // 1 second delay
 });
 
 // Theme toggle functionality
