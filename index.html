@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 18px; /* Increased font size */
+    font-size: 18px;
 }
 .container {
     width: 90%;
@@ -112,16 +112,16 @@ h1, h2, h3 {
     color: var(--color-primary);
 }
 .hero h1 {
-    font-size: 3.5rem; /* Increased font size */
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 .hero p {
-    font-size: 1.3rem; /* Increased font size */
+    font-size: 1.3rem;
     max-width: 600px;
     margin: 0 auto 1rem;
 }
 .tagline {
-    font-size: 1.5rem; /* Increased font size */
+    font-size: 1.5rem;
     font-weight: bold;
     color: var(--color-tagline);
     margin: 1.5rem 0;
@@ -145,7 +145,7 @@ h1, h2, h3 {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-text);
     border-radius: 5px;
-    font-size: 1rem; /* Increased font size */
+    font-size: 1rem;
 }
 .cta-button {
     background-color: var(--color-primary);
@@ -157,7 +157,7 @@ h1, h2, h3 {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    font-size: 1rem; /* Increased font size */
+    font-size: 1rem;
 }
 .cta-button:hover {
     background-color: var(--color-secondary);
@@ -167,11 +167,11 @@ h1, h2, h3 {
     text-align: center;
 }
 .features h2 {
-    font-size: 2.8rem; /* Increased font size */
+    font-size: 2.8rem;
     margin-bottom: 1rem;
 }
 .features > p {
-    font-size: 1.3rem; /* Increased font size */
+    font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto 2rem;
 }
@@ -201,11 +201,11 @@ h1, h2, h3 {
     padding: 4rem 0;
 }
 #contact h2 {
-    font-size: 2.8rem; /* Increased font size */
+    font-size: 2.8rem;
     margin-bottom: 1rem;
 }
 #contact p {
-    font-size: 1.3rem; /* Increased font size */
+    font-size: 1.3rem;
     max-width: 600px;
     margin: 0 auto 2rem;
 }
@@ -324,6 +324,9 @@ footer .mail-icon {
 .error {
     color: #F44336;
 }
+.info {
+    color: #2196F3;
+}
 /* Styles for the earnings section */
 .earnings-section {
     background-color: rgba(67, 67, 67, 0.1);
@@ -346,7 +349,7 @@ footer .mail-icon {
     max-width: 600px;
 }
 .earnings-headline {
-    font-size: 2.8rem; /* Increased font size */
+    font-size: 2.8rem;
     color: var(--color-primary);
     margin-bottom: 2rem;
     margin-top: 0;
@@ -383,7 +386,7 @@ footer .mail-icon {
     max-width: 600px;
 }
 .reality-headline {
-    font-size: 2.8rem; /* Increased font size */
+    font-size: 2.8rem;
     color: var(--color-primary);
     margin-bottom: 2rem;
     margin-top: 0;
@@ -461,7 +464,7 @@ footer .mail-icon {
             <input type="text" id="manual-city" name="manual-city" placeholder="Where do you drive?" style="display: none;">
             <button type="submit" class="cta-button">Gain Early Access</button>
         </form>
-        <div id="response-message"></div>
+        <div id="response-message" style="display: none;"></div>
     </div>
 </section>
 
@@ -563,24 +566,73 @@ footer .mail-icon {
 </div>
 </footer>
 
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5Ow4MYYj_8sNVZkZnJCVRZOscGVLwYwY",
+    authDomain: "boosted-earnings-d6bb4.firebaseapp.com",
+    projectId: "boosted-earnings-d6bb4",
+    storageBucket: "boosted-earnings-d6bb4.appspot.com",
+    messagingSenderId: "1098124911168",
+    appId: "1:1098124911168:web:c7d1e3d7f7d7b8e8e8e8e8"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Form submission handler
+  document.getElementById('email-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    console.log('Form submitted');
+    
+    var formData = new FormData(this);
+    var data = Object.fromEntries(formData);
+    console.log('Form data:', data);
+    
+    // Form validation
+    if (!data.email || !data.country) {
+      showMessage('Please fill in all required fields.', 'error');
+      return;
+    }
+    
+    // Show loading state
+    showMessage('Submitting...', 'info');
+    
+    try {
+      // Add the form data to a 'submissions' collection
+      const docRef = await addDoc(collection(db, "submissions"), {
+        email: data.email,
+        country: data.country,
+        state: data.state,
+        city: data.city,
+        manual_country: data.manual_country,
+        manual_city: data.manual_city,
+        timestamp: new Date()
+      });
+      
+      console.log("Document written with ID: ", docRef.id);
+      showMessage('Thank you for your interest! We\'ll be in touch soon.', 'success');
+      this.reset();
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      showMessage('An error occurred. Please try again.', 'error');
+    }
+  });
+
+  function showMessage(message, type) {
+    var messageElement = document.getElementById('response-message');
+    messageElement.textContent = message;
+    messageElement.className = type;
+    messageElement.style.display = 'block';
+  }
+</script>
 
 <script>
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyA5Ow4MYYj_8sNVZkZnJCVRZOscGVLwYwY",
-  authDomain: "boosted-earnings-d6bb4.firebaseapp.com",
-  projectId: "boosted-earnings-d6bb4",
-  storageBucket: "boosted-earnings-d6bb4.appspot.com",
-  messagingSenderId: "1098124911168",
-  appId: "1:1098124911168:web:c7d1e3d7f7d7b8e8e8e8e8"
-};
-firebase.initializeApp(firebaseConfig);
-
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
@@ -606,46 +658,6 @@ navSlide();
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     header.classList.toggle('scrolled', window.scrollY > 10);
-});
-
-document.getElementById('email-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    console.log('Form submitted');
-    
-    var formData = new FormData(this);
-    var data = Object.fromEntries(formData);
-    console.log('Form data:', data);
-    
-    // Small delay to ensure Firebase is fully initialized
-    setTimeout(() => {
-        // Get a reference to the Firestore database
-        var db = firebase.firestore();
-        console.log('Firestore reference obtained');
-        
-        // Add the form data to a 'submissions' collection
-        db.collection("submissions").add({
-            email: data.email,
-            country: data.country,
-            state: data.state,
-            city: data.city,
-            manual_country: data.manual_country,
-            manual_city: data.manual_city,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-            var messageElement = document.getElementById('response-message');
-            messageElement.textContent = 'Thank you for your interest! We\'ll be in touch soon.';
-            messageElement.className = 'success';
-            this.reset();
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-            var messageElement = document.getElementById('response-message');
-            messageElement.textContent = 'An error occurred. Please try again.';
-            messageElement.className = 'error';
-        });
-    }, 1000); // 1 second delay
 });
 
 // Theme toggle functionality
@@ -693,65 +705,63 @@ const cities = {
         'New Mexico': ['Albuquerque', 'Santa Fe', 'Las Cruces', 'Roswell', 'Taos', 'Gallup', 'Not listed'],
         'South Dakota': ['Sioux Falls', 'Rapid City', 'Greater South Dakota', 'Aberdeen', 'Not listed'],
         Georgia: ['Atlanta', 'Savannah', 'Augusta', 'Columbus', 'Athens', 'Macon', 'Valdosta', 'Coastal Georgia', 'Albany', 'Northern Georgia', 'Toccoa', 'Dublin', 'Not listed'],
-        California: ['Los Angeles', 'San Francisco', 'San Diego', 'Orange County', 'Silicon Valley', 'Sacramento', 'Inland Empire', 'Ventura', 'Monterey', 'Santa Barbara', 'Fresno', 'Bakersfield', 'Modesto', 'Stockton', 'Merced', 'Redding', 'Chico', 'Santa Cruz', 'Napa and Sonoma County', 'Lake Tahoe', 'El Centro', 'Eureka', 'Victorville', 'Yuba City', 'San Luis Obispo', 'Eastern Sierras', 'Not listed'],
-        Oklahoma: ['Oklahoma City', 'Tulsa', 'Stillwater', 'Lawton', 'Enid', 'Ardmore', 'Not listed'],
-        'New York': ['New York City', 'Long Island', 'Albany', 'Buffalo', 'Rochester', 'Syracuse', 'Ithaca', 'Binghamton', 'Westchester', 'Plattsburgh', 'Elmira', 'Utica', 'Watertown', 'Poughkeepsie', 'Not listed'],
-        'New Jersey': ['North Jersey', 'South Jersey', 'Jersey Shore', 'Not listed'],
-        Florida: ['Miami', 'Orlando', 'Tampa Bay', 'Jacksonville', 'Gainesville', 'Tallahassee', 'Fort Myers', 'Daytona Beach', 'Sarasota', 'Pensacola', 'Panama City', 'Ocala', 'Lakeland', 'Space Coast', 'Treasure Coast', 'Not listed'],
-        Illinois: ['Chicago', 'Champaign', 'Rockford', 'Peoria', 'Springfield', 'Bloomington', 'Carbondale', 'Quad Cities', 'Decatur', 'Not listed'],
+        California: ['Los Angeles', 'San Francisco', 'San Diego', 'Orange County', 'Silicon Valley', 'Sacramento', 'Inland Empire', 'Ventura', 'Monterey', 'Santa Barbara', 'Fresno', 'Bakersfield', 'Modesto', 'Stockton', 'Merced', 'Redding', 'Chico', 'Santa Cruz', 'Napa and Sonoma County', 'Mendocino County', 'Humboldt County', 'Yuba City', 'Hanford', 'Visalia', 'Yosemite', 'Mammoth Lakes', 'Palm Springs', 'Not listed'],
+        Florida: ['Miami', 'Orlando', 'Tampa Bay', 'Jacksonville', 'Fort Myers', 'Gainesville', 'Tallahassee', 'Daytona Beach', 'Sarasota', 'Fort Lauderdale', 'West Palm Beach', 'Pensacola', 'Panama City Beach', 'Ocala', 'Port St. Lucie', 'The Florida Keys', 'Not listed'],
+        Illinois: ['Chicago', 'Champaign', 'Rockford', 'Peoria', 'Springfield', 'Bloomington', 'Quad Cities', 'Carbondale', 'Not listed'],
         Indiana: ['Indianapolis', 'Fort Wayne', 'Bloomington', 'South Bend', 'Lafayette', 'Evansville', 'Terre Haute', 'Muncie', 'Not listed'],
-        Michigan: ['Detroit', 'Grand Rapids', 'Ann Arbor', 'Lansing', 'Kalamazoo', 'Flint', 'Traverse City', 'Saginaw', 'Marquette', 'Not listed'],
-        Ohio: ['Columbus', 'Cleveland', 'Cincinnati', 'Dayton', 'Toledo', 'Akron', 'Youngstown', 'Canton', 'Not listed'],
-        Wisconsin: ['Milwaukee', 'Madison', 'Green Bay', 'Appleton', 'Eau Claire', 'La Crosse', 'Wausau', 'Not listed'],
+        Iowa: ['Des Moines', 'Cedar Rapids', 'Iowa City', 'Quad Cities', 'Waterloo', 'Sioux City', 'Ames', 'Dubuque', 'Not listed'],
+        Kansas: ['Kansas City', 'Wichita', 'Topeka', 'Lawrence', 'Manhattan', 'Salina', 'Hutchinson', 'Dodge City', 'Not listed'],
+        Kentucky: ['Louisville', 'Lexington', 'Bowling Green', 'Owensboro', 'Northern Kentucky', 'Paducah', 'Not listed'],
+        Louisiana: ['New Orleans', 'Baton Rouge', 'Lafayette', 'Shreveport', 'Lake Charles', 'Monroe', 'Alexandria', 'Houma', 'Not listed'],
+        Maine: ['Portland', 'Bangor', 'Augusta', 'Lewiston', 'Bar Harbor', 'Not listed'],
+        Maryland: ['Baltimore', 'Annapolis', 'Ocean City', 'Frederick', 'Salisbury', 'Not listed'],
+        Massachusetts: ['Boston', 'Worcester', 'Springfield', 'Cambridge', 'Cape Cod', 'Lowell', 'New Bedford', 'Not listed'],
+        Michigan: ['Detroit', 'Grand Rapids', 'Ann Arbor', 'Lansing', 'Kalamazoo', 'Flint', 'Traverse City', 'Marquette', 'Not listed'],
         Minnesota: ['Minneapolis-St. Paul', 'Duluth', 'Rochester', 'St. Cloud', 'Mankato', 'Moorhead', 'Not listed'],
-        Iowa: ['Des Moines', 'Cedar Rapids', 'Iowa City', 'Davenport', 'Sioux City', 'Waterloo', 'Dubuque', 'Ames', 'Not listed'],
+        Mississippi: ['Jackson', 'Gulfport', 'Hattiesburg', 'Biloxi', 'Oxford', 'Tupelo', 'Not listed'],
         Missouri: ['St. Louis', 'Kansas City', 'Springfield', 'Columbia', 'Jefferson City', 'St. Joseph', 'Cape Girardeau', 'Not listed'],
-        Arkansas: ['Little Rock', 'Fayetteville', 'Fort Smith', 'Jonesboro', 'Hot Springs', 'Not listed'],
-        Louisiana: ['New Orleans', 'Baton Rouge', 'Lafayette', 'Shreveport', 'Lake Charles', 'Monroe', 'Alexandria', 'Not listed'],
-        Mississippi: ['Jackson', 'Gulfport-Biloxi', 'Hattiesburg', 'Oxford', 'Tupelo', 'Not listed'],
-        Alabama: ['Birmingham', 'Mobile', 'Huntsville', 'Montgomery', 'Tuscaloosa', 'Auburn', 'Dothan', 'Not listed'],
-        Tennessee: ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga', 'Clarksville', 'Murfreesboro', 'Jackson', 'Tri-Cities', 'Not listed'],
-        Kentucky: ['Louisville', 'Lexington', 'Bowling Green', 'Owensboro', 'Northern Kentucky', 'Not listed'],
-        'West Virginia': ['Charleston', 'Huntington', 'Morgantown', 'Wheeling', 'Parkersburg', 'Not listed'],
-        Virginia: ['Northern Virginia', 'Richmond', 'Virginia Beach', 'Charlottesville', 'Roanoke', 'Lynchburg', 'Harrisonburg', 'Blacksburg', 'Not listed'],
-        'North Carolina': ['Charlotte', 'Raleigh-Durham', 'Greensboro', 'Winston-Salem', 'Asheville', 'Wilmington', 'Fayetteville', 'Greenville', 'Not listed'],
-        'South Carolina': ['Charleston', 'Columbia', 'Greenville', 'Myrtle Beach', 'Hilton Head', 'Not listed'],
-        Maryland: ['Baltimore', 'Annapolis', 'Ocean City', 'Western Maryland', 'Not listed'],
-        Delaware: ['Wilmington', 'Dover', 'Rehoboth Beach', 'Not listed'],
-        Connecticut: ['Hartford', 'New Haven', 'Bridgeport', 'Stamford', 'New London', 'Not listed'],
-        Massachusetts: ['Boston', 'Worcester', 'Springfield', 'Cape Cod', 'Lowell', 'Not listed'],
-        'Rhode Island': ['Providence', 'Newport', 'Warwick', 'Not listed'],
-        Vermont: ['Burlington', 'Montpelier', 'Rutland', 'Not listed'],
-        'New Hampshire': ['Manchester', 'Nashua', 'Concord', 'Portsmouth', 'Not listed'],
-        Maine: ['Portland', 'Bangor', 'Augusta', 'Bar Harbor', 'Not listed'],
-        Colorado: ['Denver', 'Colorado Springs', 'Boulder', 'Fort Collins', 'Aspen', 'Vail', 'Pueblo', 'Grand Junction', 'Not listed'],
-        Utah: ['Salt Lake City', 'Park City', 'Provo', 'Ogden', 'St. George', 'Moab', 'Not listed'],
+        Montana: ['Billings', 'Missoula', 'Bozeman', 'Helena', 'Great Falls', 'Butte', 'Not listed'],
+        Nebraska: ['Omaha', 'Lincoln', 'Grand Island', 'Kearney', 'North Platte', 'Scottsbluff', 'Not listed'],
         Nevada: ['Las Vegas', 'Reno', 'Carson City', 'Elko', 'Not listed'],
-        Arizona: ['Phoenix', 'Tucson', 'Flagstaff', 'Yuma', 'Prescott', 'Not listed'],
-        'New Mexico': ['Albuquerque', 'Santa Fe', 'Las Cruces', 'Roswell', 'Taos', 'Not listed'],
-        Idaho: ['Boise', 'Idaho Falls', 'Coeur d\'Alene', 'Twin Falls', 'Not listed'],
-        Montana: ['Billings', 'Missoula', 'Bozeman', 'Helena', 'Great Falls', 'Not listed'],
-        Wyoming: ['Cheyenne', 'Jackson', 'Casper', 'Laramie', 'Not listed'],
+        'New Hampshire': ['Manchester', 'Nashua', 'Concord', 'Portsmouth', 'Keene', 'Not listed'],
+        'New Jersey': ['Newark', 'Jersey City', 'Paterson', 'Atlantic City', 'Trenton', 'Camden', 'New Brunswick', 'Not listed'],
+        'New York': ['New York City', 'Buffalo', 'Rochester', 'Syracuse', 'Albany', 'Binghamton', 'Ithaca', 'Utica', 'Plattsburgh', 'Not listed'],
+        'North Carolina': ['Charlotte', 'Raleigh-Durham', 'Greensboro', 'Winston-Salem', 'Asheville', 'Wilmington', 'Fayetteville', 'Greenville', 'Not listed'],
         'North Dakota': ['Fargo', 'Bismarck', 'Grand Forks', 'Minot', 'Not listed'],
-        'South Dakota': ['Sioux Falls', 'Rapid City', 'Aberdeen', 'Not listed'],
-        Nebraska: ['Omaha', 'Lincoln', 'Grand Island', 'Kearney', 'Not listed'],
-        Kansas: ['Kansas City', 'Wichita', 'Topeka', 'Lawrence', 'Manhattan', 'Not listed'],
-        Oregon: ['Portland', 'Eugene', 'Salem', 'Bend', 'Medford', 'Not listed'],
-        Washington: ['Seattle', 'Spokane', 'Tacoma', 'Vancouver', 'Bellingham', 'Not listed'],
+        Ohio: ['Columbus', 'Cleveland', 'Cincinnati', 'Toledo', 'Akron', 'Dayton', 'Youngstown', 'Canton', 'Not listed'],
+        Oklahoma: ['Oklahoma City', 'Tulsa', 'Norman', 'Stillwater', 'Lawton', 'Enid', 'Not listed'],
+        Oregon: ['Portland', 'Eugene', 'Salem', 'Bend', 'Medford', 'Corvallis', 'Not listed'],
+        'Rhode Island': ['Providence', 'Newport', 'Warwick', 'Narragansett', 'Not listed'],
+        'South Carolina': ['Charleston', 'Columbia', 'Greenville', 'Myrtle Beach', 'Hilton Head', 'Not listed'],
+        Tennessee: ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga', 'Clarksville', 'Murfreesboro', 'Not listed'],
+        Utah: ['Salt Lake City', 'Park City', 'Provo', 'Ogden', 'St. George', 'Moab', 'Not listed'],
+        Vermont: ['Burlington', 'Montpelier', 'Rutland', 'Stowe', 'Not listed'],
+        Virginia: ['Richmond', 'Virginia Beach', 'Norfolk', 'Charlottesville', 'Roanoke', 'Lynchburg', 'Not listed'],
+        Washington: ['Seattle', 'Spokane', 'Tacoma', 'Vancouver', 'Bellevue', 'Everett', 'Olympia', 'Not listed'],
+        'West Virginia': ['Charleston', 'Huntington', 'Morgantown', 'Wheeling', 'Parkersburg', 'Not listed'],
+        Wisconsin: ['Milwaukee', 'Madison', 'Green Bay', 'Kenosha', 'Racine', 'Appleton', 'Eau Claire', 'La Crosse', 'Not listed'],
+        Wyoming: ['Cheyenne', 'Casper', 'Laramie', 'Jackson', 'Cody', 'Not listed'],
+        Alabama: ['Birmingham', 'Montgomery', 'Mobile', 'Huntsville', 'Tuscaloosa', 'Auburn', 'Not listed'],
         Alaska: ['Anchorage', 'Fairbanks', 'Juneau', 'Not listed'],
-        Hawaii: ['Honolulu', 'Maui', 'Big Island', 'Kauai', 'Not listed']
+        Arizona: ['Phoenix', 'Tucson', 'Flagstaff', 'Yuma', 'Prescott', 'Not listed'],
+        Arkansas: ['Little Rock', 'Fayetteville', 'Fort Smith', 'Jonesboro', 'Hot Springs', 'Not listed'],
+        Colorado: ['Denver', 'Colorado Springs', 'Boulder', 'Fort Collins', 'Aspen', 'Vail', 'Not listed'],
+        Connecticut: ['Hartford', 'New Haven', 'Stamford', 'Bridgeport', 'New London', 'Not listed'],
+        Delaware: ['Wilmington', 'Dover', 'Newark', 'Rehoboth Beach', 'Not listed'],
+        Hawaii: ['Honolulu', 'Maui', 'Big Island', 'Kauai', 'Not listed'],
+        Idaho: ['Boise', 'Idaho Falls', 'Coeur d\'Alene', 'Twin Falls', 'Sun Valley', 'Not listed']
     },
     CA: {
         Alberta: ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Not listed'],
-        'British Columbia': ['Vancouver', 'Victoria', 'Kelowna', 'Nanaimo', 'Not listed'],
-        Manitoba: ['Winnipeg', 'Brandon', 'Not listed'],
+        'British Columbia': ['Vancouver', 'Victoria', 'Kelowna', 'Whistler', 'Nanaimo', 'Not listed'],
+        Manitoba: ['Winnipeg', 'Brandon', 'Thompson', 'Not listed'],
         'New Brunswick': ['Fredericton', 'Saint John', 'Moncton', 'Not listed'],
-        'Newfoundland and Labrador': ['St. John\'s', 'Corner Brook', 'Not listed'],
-        'Nova Scotia': ['Halifax', 'Sydney', 'Not listed'],
-        Ontario: ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Windsor', 'Kitchener-Waterloo', 'Not listed'],
+        'Newfoundland and Labrador': ['St. John\'s', 'Corner Brook', 'Gander', 'Not listed'],
+        'Nova Scotia': ['Halifax', 'Sydney', 'Truro', 'Not listed'],
+        Ontario: ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Windsor', 'Kitchener-Waterloo', 'Niagara Falls', 'Kingston', 'Thunder Bay', 'Sudbury', 'Not listed'],
         'Prince Edward Island': ['Charlottetown', 'Summerside', 'Not listed'],
-        Quebec: ['Montreal', 'Quebec City', 'Gatineau', 'Sherbrooke', 'Not listed'],
-        Saskatchewan: ['Saskatoon', 'Regina', 'Not listed']
+        Quebec: ['Montreal', 'Quebec City', 'Gatineau', 'Sherbrooke', 'Trois-Rivières', 'Not listed'],
+        Saskatchewan: ['Saskatoon', 'Regina', 'Prince Albert', 'Not listed']
     },
     UK: {
         England: ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Leeds', 'Newcastle', 'Bristol', 'Not listed'],
@@ -760,12 +770,12 @@ const cities = {
         'Northern Ireland': ['Belfast', 'Derry', 'Not listed']
     },
     AU: {
-        'New South Wales': ['Sydney', 'Newcastle', 'Wollongong', 'Not listed'],
-        Victoria: ['Melbourne', 'Geelong', 'Ballarat', 'Not listed'],
-        Queensland: ['Brisbane', 'Gold Coast', 'Sunshine Coast', 'Cairns', 'Not listed'],
-        'Western Australia': ['Perth', 'Fremantle', 'Not listed'],
-        'South Australia': ['Adelaide', 'Not listed'],
-        Tasmania: ['Hobart', 'Launceston', 'Not listed'],
+        'New South Wales': ['Sydney', 'Newcastle', 'Wollongong', 'Central Coast', 'Not listed'],
+        Victoria: ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Not listed'],
+        Queensland: ['Brisbane', 'Gold Coast', 'Sunshine Coast', 'Cairns', 'Townsville', 'Not listed'],
+        'Western Australia': ['Perth', 'Fremantle', 'Bunbury', 'Not listed'],
+        'South Australia': ['Adelaide', 'Mount Gambier', 'Whyalla', 'Not listed'],
+        Tasmania: ['Hobart', 'Launceston', 'Devonport', 'Not listed'],
         'Australian Capital Territory': ['Canberra', 'Not listed'],
         'Northern Territory': ['Darwin', 'Alice Springs', 'Not listed']
     }
@@ -775,27 +785,26 @@ countrySelect.addEventListener('change', function() {
     const selectedCountry = this.value;
     stateSelect.innerHTML = '<option value="">Select your state</option>';
     citySelect.innerHTML = '<option value="">Select your city</option>';
-    
+    manualCityInput.style.display = 'none';
+    manualCountryInput.style.display = 'none';
+
     if (selectedCountry === 'Not listed') {
         manualCountryInput.style.display = 'block';
         stateSelect.style.display = 'none';
         citySelect.style.display = 'none';
         manualCityInput.style.display = 'block';
+    } else if (states[selectedCountry]) {
+        stateSelect.style.display = 'block';
+        states[selectedCountry].forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
     } else {
-        manualCountryInput.style.display = 'none';
-        if (states[selectedCountry]) {
-            stateSelect.style.display = 'block';
-            states[selectedCountry].forEach(state => {
-                const option = document.createElement('option');
-                option.value = state;
-                option.textContent = state;
-                stateSelect.appendChild(option);
-            });
-        } else {
-            stateSelect.style.display = 'none';
-            citySelect.style.display = 'none';
-            manualCityInput.style.display = 'block';
-        }
+        stateSelect.style.display = 'none';
+        citySelect.style.display = 'none';
+        manualCityInput.style.display = 'block';
     }
 });
 
@@ -803,10 +812,10 @@ stateSelect.addEventListener('change', function() {
     const selectedCountry = countrySelect.value;
     const selectedState = this.value;
     citySelect.innerHTML = '<option value="">Select your city</option>';
-    
+    manualCityInput.style.display = 'none';
+
     if (cities[selectedCountry] && cities[selectedCountry][selectedState]) {
         citySelect.style.display = 'block';
-        manualCityInput.style.display = 'none';
         cities[selectedCountry][selectedState].forEach(city => {
             const option = document.createElement('option');
             option.value = city;
