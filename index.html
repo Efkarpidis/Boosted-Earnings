@@ -608,11 +608,11 @@ footer .mail-icon {
         timestamp: new Date()
       };
 
-      // Only add these fields if they have values
-      if (data.state && data.state !== "") cleanData.state = data.state;
-      if (data.city && data.city !== "") cleanData.city = data.city;
-      if (data.manual_country && data.manual_country !== "") cleanData.manual_country = data.manual_country;
-      if (data.manual_city && data.manual_city !== "") cleanData.manual_city = data.manual_city;
+      // Only add these fields if they have non-empty values
+      if (data.state && data.state.trim() !== "") cleanData.state = data.state;
+      if (data.city && data.city.trim() !== "") cleanData.city = data.city;
+      if (data.manual_country && data.manual_country.trim() !== "") cleanData.manual_country = data.manual_country;
+      if (data.manual_city && data.manual_city.trim() !== "") cleanData.manual_city = data.manual_city;
       
       // Add the cleaned data to Firestore
       const docRef = await addDoc(collection(db, "submissions"), cleanData);
