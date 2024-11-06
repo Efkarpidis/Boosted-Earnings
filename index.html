@@ -566,7 +566,7 @@ footer .mail-icon {
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -581,6 +581,23 @@ footer .mail-icon {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+
+  async function checkExistingEmail(email) {
+    const submissionsRef = collection(db, "submissions");
+    const q = query(submissionsRef, where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+  }
+
+  function isOnCooldown() {
+    const lastSubmission = localStorage.getItem('lastSubmission');
+    if (lastSubmission) {
+      const cooldownPeriod = 5 * 60 * 1000; // 5 minutes in milliseconds
+      const timeSinceLastSubmission = Date.now() - parseInt(lastSubmission);
+      return timeSinceLastSubmission < cooldownPeriod;
+    }
+    return false;
+  }
 
   // Form submission handler
   document.getElementById('email-form').addEventListener('submit', async function(e) {
@@ -597,10 +614,23 @@ footer .mail-icon {
       return;
     }
     
+    // Check cooldown
+    if (isOnCooldown()) {
+      showMessage('Please wait a few minutes before submitting again.', 'error');
+      return;
+    }
+    
     // Show loading state
     showMessage('Submitting...', 'info');
     
     try {
+      // Check for existing email
+      const emailExists = await checkExistingEmail(data.email);
+      if (emailExists) {
+        showMessage('This email has already been submitted.', 'error');
+        return;
+      }
+
       // Clean up the data object by removing undefined or empty string values
       const cleanData = {
         email: data.email,
@@ -620,6 +650,9 @@ footer .mail-icon {
       console.log("Document written with ID: ", docRef.id);
       showMessage('Thank you for your interest! We\'ll be in touch soon.', 'success');
       this.reset();
+
+      // Set cooldown
+      localStorage.setItem('lastSubmission', Date.now().toString());
     } catch (error) {
       console.error("Error adding document: ", error);
       showMessage('An error occurred: ' + error.message, 'error');
