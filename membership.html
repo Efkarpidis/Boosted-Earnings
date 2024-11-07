@@ -6,469 +6,469 @@
 <title>Membership Options - Boosted Earnings</title>
 <style>
 :root {
-    --color-primary: #EDCA3F;
-    --color-secondary: #CA9825;
-    --color-background: #0F0F0F;
-    --color-text: #E0E0E0;
-    --color-text-muted: #B1B1B1;
-    --color-accent: #434343;
-    --color-tagline: #FFD700;
+  --color-primary: #EDCA3F;
+  --color-secondary: #CA9825;
+  --color-background: #0F0F0F;
+  --color-text: #E0E0E0;
+  --color-text-muted: #B1B1B1;
+  --color-accent: #434343;
+  --color-tagline: #FFD700;
 }
 .light {
-    --color-background: #FFFFFF;
-    --color-text: #1A1A1A;
-    --color-text-muted: #555555;
-    --color-accent: #E0E0E0;
+  --color-background: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-muted: #555555;
+  --color-accent: #E0E0E0;
 }
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
 }
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 header {
-    background-color: rgba(15, 15, 15, 0.8);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
+  background-color: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 .light header {
-    background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
 }
 .logo img {
-    height: 40px;
-    width: auto;
-    transition: opacity 0.3s ease;
+  height: 40px;
+  width: auto;
+  transition: opacity 0.3s ease;
 }
 .logo img.light-logo {
-    display: none;
+  display: none;
 }
 .light .logo img.dark-logo {
-    display: none;
+  display: none;
 }
 .light .logo img.light-logo {
-    display: inline;
+  display: inline;
 }
 .nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 .nav-links a {
-    color: var(--color-text);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 .nav-links a:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 .burger {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 .burger div {
-    width: 25px;
-    height: 3px;
-    background-color: var(--color-primary);
-    margin: 5px;
-    transition: all 0.3s ease;
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin: 5px;
+  transition: all 0.3s ease;
 }
 .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: var(--color-text);
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 .theme-toggle:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 main {
-    padding-top: 80px; /* Adjust this value based on your header height */
+  padding-top: 80px; /* Adjust this value based on your header height */
 }
 .hero {
-    padding: 2rem 0;
-    text-align: center;
+  padding: 2rem 0;
+  text-align: center;
 }
 h1, h2, h3 {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 .hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 1rem;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1rem;
 }
 .beta-message {
-    background-color: rgba(237, 202, 63, 0.1);
-    border: 2px solid var(--color-primary);
-    border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
+  background-color: rgba(237, 202, 63, 0.1);
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 .beta-message h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .beta-message p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .plans-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
 }
 .plans-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
 }
 .plan-card {
-    background-color: rgba(67, 67, 67, 0.1);
-    border: 1px solid var(--color-accent);
-    border-radius: 10px;
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 400px;
-    flex: 1 1 300px;
-    display: flex;
-    flex-direction: column;
+  background-color: rgba(67, 67, 67, 0.1);
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
 }
 .plan-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 .plan-price {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--color-primary);
-    margin-bottom: 0.5rem;
-    text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 .plan-billing {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    text-align: center;
-    margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 .feature-list {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 .feature-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 .feature-icon {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
 .check-icon {
-    color: #4CAF50;
+  color: #4CAF50;
 }
 .cross-icon {
-    color: #F44336;
+  color: #F44336;
 }
 .cta-button {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    max-width: 200px;
-    align-self: center;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  align-self: center;
 }
 .cta-button:hover {
-    background-color: var(--color-secondary);
+  background-color: var(--color-secondary);
 }
 .billing-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 .billing-toggle label {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--color-accent);
-    transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-accent);
+  transition: all 0.3s ease;
 }
 .billing-toggle label:first-of-type {
-    border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
 }
 .billing-toggle label:last-of-type {
-    border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
 }
 .billing-toggle input[type="radio"] {
-    display: none;
+  display: none;
 }
 .billing-toggle input[type="radio"]:checked + label {
-    background-color: var(--color-primary);
-    color: var(--color-background);
+  background-color: var(--color-primary);
+  color: var(--color-background);
 }
 footer {
-    background-color: var(--color-background);
-    color: var(--color-text-muted);
-    text-align: center;
-    padding: 2rem 0;
-    border-top: 1px solid var(--color-accent);
+  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-accent);
 }
 footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 footer p {
-    margin: 0;
+  margin: 0;
 }
 footer nav {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 footer a {
-    color: var(--color-text-muted);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 footer a:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 footer .mail-icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 @media screen and (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        top: 8vh;
-        background-color: var(--color-background);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-    }
-    .nav-links li {
-        opacity: 0;
-    }
-    .burger {
-        display: block;
-    }
-    footer .container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    main {
-        padding-top: 60px; /* Adjust for smaller screens */
-    }
+  .nav-links {
+      position: absolute;
+      right: 0px;
+      height: 92vh;
+      top: 8vh;
+      background-color: var(--color-background);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in;
+  }
+  .nav-links li {
+      opacity: 0;
+  }
+  .burger {
+      display: block;
+  }
+  footer .container {
+      flex-direction: column;
+      gap: 1rem;
+  }
+  main {
+      padding-top: 60px; /* Adjust for smaller screens */
+  }
 }
 @media screen and (max-width: 480px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
-    .beta-message {
-        padding: 1.5rem;
-    }
-    .beta-message h2 {
-        font-size: 1.5rem;
-    }
-    .beta-message p {
-        font-size: 1rem;
-    }
-    .plan-title {
-        font-size: 1.3rem;
-    }
-    .plan-price {
-        font-size: 1.8rem;
-    }
-    .billing-toggle label {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-    .cta-button {
-        font-size: 0.9rem;
-        padding: 0.6rem 0.8rem;
-    }
+  .hero h1 {
+      font-size: 2rem;
+  }
+  .hero p {
+      font-size: 1rem;
+  }
+  .beta-message {
+      padding: 1.5rem;
+  }
+  .beta-message h2 {
+      font-size: 1.5rem;
+  }
+  .beta-message p {
+      font-size: 1rem;
+  }
+  .plan-title {
+      font-size: 1.3rem;
+  }
+  .plan-price {
+      font-size: 1.8rem;
+  }
+  .billing-toggle label {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+  }
+  .cta-button {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+  }
 }
 @media screen and (min-width: 1024px) {
-    .plans-wrapper {
-        flex-wrap: nowrap;
-    }
-    .plan-card {
-        max-width: none;
-    }
+  .plans-wrapper {
+      flex-wrap: nowrap;
+  }
+  .plan-card {
+      max-width: none;
+  }
 }
 .nav-active {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 @keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0px);
+  }
 }
 .toggle .line1 {
-    transform: rotate(-45deg) translate(-5px,6px);
+  transform: rotate(-45deg) translate(-5px,6px);
 }
 .toggle .line2 {
-    opacity: 0;
+  opacity: 0;
 }
 .toggle .line3 {
-    transform: rotate(45deg) translate(-5px,-6px);
+  transform: rotate(45deg) translate(-5px,-6px);
 }
 </style>
 </head>
 <body>
 <header>
 <nav class="container">
-    <a href="index.html" class="logo">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
-    </a>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="founder.html">Founder</a></li>
-        <li><a href="invest.html">Invest</a></li>
-        <li><a href="plans.html">Membership</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#careers">Careers</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
-    </ul>
-    <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </div>
+  <a href="index.html" class="logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+  </a>
+  <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="founder.html">Founder</a></li>
+      <li><a href="invest.html">Invest</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
+  </ul>
+  <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+  </div>
 </nav>
 </header>
 
 <main>
 <section class="beta-message">
-    <div class="container">
-        <h2>Join Us as a Beta Tester! 🚀</h2>
-        <p>We're excited to offer early access to Boosted Earnings for our beta testers! Currently, all membership options are free as we gather feedback and refine our platform. Sign up to experience the Freemium and Premium features before our official launch.</p>
-    </div>
+  <div class="container">
+      <h2>Join Us as a Beta Tester! 🚀</h2>
+      <p>We're excited to offer early access to Boosted Earnings for our beta testers! Currently, all membership options are free as we gather feedback and refine our platform. Sign up to experience the Freemium and Premium features before our official launch.</p>
+  </div>
 </section>
 
 <section class="hero">
-    <div class="container">
-        <h1>Choose Your Membership</h1>
-        <p>Select the membership that best fits your needs and start boosting your earnings today!</p>
-    </div>
+  <div class="container">
+      <h1>Choose Your Membership</h1>
+      <p>Select the membership that best fits your needs and start boosting your earnings today!</p>
+  </div>
 </section>
 
 <section class="plans-container">
-    <div class="billing-toggle">
-        <input type="radio" id="monthly" name="billing" value="monthly" checked>
-        <label for="monthly">Monthly</label>
-        <input type="radio" id="annual" name="billing" value="annual">
-        <label for="annual">Annual (Save 17%)</label>
-    </div>
-    <div class="plans-wrapper">
-        <div class="plan-card">
-            <h2 class="plan-title">Freemium</h2>
-            <p class="plan-price">$0</p>
-            <p class="plan-billing">Forever Free</p>
-            <ul class="feature-list">
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Basic performance tracking</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Limited earnings insights</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Community forums access</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Email support</li>
-                <li class="feature-item"><span class="feature-icon cross-icon">✖</span> Personalized optimization tips</li>
-                <li class="feature-item"><span class="feature-icon cross-icon">✖</span> Exclusive webinars and training</li>
-                <li class="feature-item"><span class="feature-icon cross-icon">✖</span> Multi-platform integration</li>
-            </ul>
-            <a href="#" class="cta-button">Get Started</a>
-        </div>
-        <div class="plan-card">
-            <h2 class="plan-title">Premium</h2>
-            <p class="plan-price" id="premium-price">$14.99</p>
-            <p class="plan-billing" id="premium-billing">per month</p>
-            <ul class="feature-list">
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Advanced performance tracking</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Comprehensive earnings insights</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Community forums access</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Priority support</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Personalized optimization tips</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Exclusive webinars and training</li>
-                <li class="feature-item"><span class="feature-icon check-icon">✔</span> Multi-platform integration</li>
-            </ul>
-            <a href="#" class="cta-button" id="premium-cta">Upgrade Now</a>
-        </div>
-    </div>
+  <div class="billing-toggle">
+      <input type="radio" id="monthly" name="billing" value="monthly" checked>
+      <label for="monthly">Monthly</label>
+      <input type="radio" id="annual" name="billing" value="annual">
+      <label for="annual">Annual (Save 17%)</label>
+  </div>
+  <div class="plans-wrapper">
+      <div class="plan-card">
+          <h2 class="plan-title">Freemium</h2>
+          <p class="plan-price">$0</p>
+          <p class="plan-billing">Forever Free</p>
+          <ul class="feature-list">
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Basic performance tracking</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Limited earnings insights</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Community forums access</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Email support</li>
+              <li class="feature-item"><span class="feature-icon cross-icon">✖</span> Personalized optimization tips</li>
+              <li class="feature-item"><span class="feature-icon cross-icon">✖</span> Exclusive webinars and training</li>
+              <li class="feature-item"><span class="feature-icon cross-icon">✖</span> Multi-platform integration</li>
+          </ul>
+          <a href="#" class="cta-button">Get Started</a>
+      </div>
+      <div class="plan-card">
+          <h2 class="plan-title">Premium</h2>
+          <p class="plan-price" id="premium-price">$14.99</p>
+          <p class="plan-billing" id="premium-billing">per month</p>
+          <ul class="feature-list">
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Advanced performance tracking</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Comprehensive earnings insights</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Community forums access</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Priority support</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Personalized optimization tips</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Exclusive webinars and training</li>
+              <li class="feature-item"><span class="feature-icon check-icon">✔</span> Multi-platform integration</li>
+          </ul>
+          <a href="#" class="cta-button" id="premium-cta">Upgrade Now</a>
+      </div>
+  </div>
 </section>
 </main>
 
 <footer>
 <div class="container">
-    <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
-    <nav>
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
-        <a href="mailto:connect@boostedearnings.com" aria-label="Email us">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-        </a>
-    </nav>
+  <p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+  <nav>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="mailto:connect@boostedearnings.com" aria-label="Email us">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+      </a>
+  </nav>
 </div>
 </footer>
 
@@ -478,12 +478,12 @@ const themeToggle = document.querySelector('.theme-toggle');
 const htmlElement = document.documentElement;
 
 themeToggle.addEventListener('click', () => {
-    htmlElement.classList.toggle('light');
-    updateThemeIcon();
+  htmlElement.classList.toggle('light');
+  updateThemeIcon();
 });
 
 function updateThemeIcon() {
-    themeToggle.textContent = htmlElement.classList.contains('light') ? '🌙' : '🌓';
+  themeToggle.textContent = htmlElement.classList.contains('light') ? '🌙' : '🌓';
 }
 
 // Mobile navigation
@@ -492,17 +492,17 @@ const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 
 burger.addEventListener('click', () => {
-    nav.classList.toggle('nav-active');
-    
-    navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-            link.style.animation = '';
-        } else {
-            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-    });
-    
-    burger.classList.toggle('toggle');
+  nav.classList.toggle('nav-active');
+  
+  navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+          link.style.animation = '';
+      } else {
+          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+      }
+  });
+  
+  burger.classList.toggle('toggle');
 });
 
 // Billing toggle
@@ -512,15 +512,15 @@ const premiumBilling = document.getElementById('premium-billing');
 const premiumCTA = document.getElementById('premium-cta');
 
 billingToggle.addEventListener('change', (e) => {
-    if (e.target.value === 'annual') {
-        premiumPrice.textContent = '$149.99';
-        premiumBilling.textContent = 'per year';
-        premiumCTA.textContent = 'Upgrade Annually';
-    } else {
-        premiumPrice.textContent = '$14.99';
-        premiumBilling.textContent = 'per month';
-        premiumCTA.textContent = 'Upgrade Now';
-    }
+  if (e.target.value === 'annual') {
+      premiumPrice.textContent = '$149.99';
+      premiumBilling.textContent = 'per year';
+      premiumCTA.textContent = 'Upgrade Annually';
+  } else {
+      premiumPrice.textContent = '$14.99';
+      premiumBilling.textContent = 'per month';
+      premiumCTA.textContent = 'Upgrade Now';
+  }
 });
 
 // Initialize theme
