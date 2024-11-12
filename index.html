@@ -469,6 +469,7 @@ margin-top: 0;
     </li>
     <li><a href="#careers">Careers</a></li>
     <li><a href="#signin">Sign in</a></li>
+    <li><a href="beta.html">Beta</a></li>
     <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
 </ul>
 <div class="burger">
@@ -743,7 +744,8 @@ US: {
     Pennsylvania: ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Allentown', 'Lancaster', 'Reading', 'Scranton', 'Erie', 'York', 'State College', 'Altoona-Johnstown Area', 'Williamsport', 'Not listed'],
     Texas: ['Houston', 'Dallas-Fort Worth', 'Austin', 'San Antonio', 'Corpus Christi', 'El Paso', 'Waco-Killeen', 'Lubbock', 'College Station', 'Beaumont', 'Mi. Lake Tahoe', 'Yuba-Sutter', 'Mendocino County', 'Humboldt County', 'Not listed'],
     Florida: ['Miami', 'Orlando', 'Tampa Bay', 'Jacksonville', 'Fort Myers', 'Gainesville', 'Tallahassee', 'Sarasota', 'Daytona Beach', 'Palm Bay', 'Pensacola', 'Fort Walton Beach', 'Panama City', 'Ocala', 'Not listed'],
-    Illinois: ['Chicago', 'Champaign', 'Rockford', 'Peoria', 'Bloomington-Normal', 'Quad Cities', 'Springfield', 'Carbondale', 'Not listed'],
+    Illinois: ['Chicago', 'Champaign', 'Rockford',
+    'Peoria', 'Bloomington-Normal', 'Quad Cities', 'Springfield', 'Carbondale', 'Not listed'],
     Indiana: ['Indianapolis', 'Fort Wayne', 'Bloomington', 'Lafayette', 'Muncie', 'South Ben', 'Evansville', 'Terre Haute', 'Not listed'],
     Iowa: ['Des Moines', 'Cedar Rapids', 'Iowa City', 'Quad Cities', 'Ames', 'Sioux City', 'Dubuque', 'Waterloo', 'Not listed'],
     Kansas: ['Kansas City', 'Wichita', 'Topeka', 'Lawrence', 'Manhattan', 'Emporia', 'Not listed'],
@@ -910,8 +912,8 @@ updateThemeIcon();
 
 // Mobile dropdown functionality
 if (window.innerWidth <= 768) {
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => {
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
     const dropdownLink = dropdown.querySelector('a');
     const dropdownContent = dropdown.querySelector('.dropdown-content');
     
@@ -919,17 +921,17 @@ if (window.innerWidth <= 768) {
       e.preventDefault();
       dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
-  });
+});
 
-  // Close dropdowns when clicking outside
-  document.addEventListener('click', (e) => {
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
       const dropdownContents = document.querySelectorAll('.dropdown-content');
       dropdownContents.forEach(content => {
         content.style.display = 'none';
       });
     }
-  });
+});
 }
 </script>
 </body>
