@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boosted Earnings - Elevate Your Rideshare Experience</title>
+<style>
+:root {
+  --color-primary: #EDCA3F;
+  --color-secondary: #CA9825;
+  --color-background: #0F0F0F;
+  --color-text: #E0E0E0;
+  --color-text-muted: #B1B1B1;
+  --color-accent: #434343;
+  --color-tagline: #FFD700;
+}
+.light {
+  --color-background: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-muted: #555555;
+  --color-accent: #E0E0E0;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+header {
+  background-color: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.light header {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.logo img {
+  height: 2.5rem;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+.logo img.light-logo {
+  display: none;
+}
+.light .logo img.dark-logo {
+  display: none;
+}
+.light .logo img.light-logo {
+  display: inline;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.theme-toggle:hover {
+  color: var(--color-primary);
+}
+.hero {
+  padding: 6rem 0 3rem;
+  text-align: center;
+}
+h1, h2, h3 {
+  color: var(--color-primary);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+.tagline {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-tagline);
+  margin: 1.5rem 0;
+  display: inline-block;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+.cta-form input[type="email"],
+.cta-form input[type="text"],
+.cta-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.cta-button {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+.cta-button:hover {
+  background-color: var(--color-secondary);
+}
+.features {
+  padding: 2rem 0;
+  text-align: center;
+}
+.features h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.features > p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.feature-card {
+  background-color: rgba(67, 67, 67, 0.1);
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+}
+#contact {
+  text-align: center;
+  padding: 4rem 0;
+}
+#contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+#contact p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+#contact .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+#contact .text-content {
+  flex: 1;
+}
+#contact .image-content {
+  flex: 1;
+  max-width: 600px;
+}
+#contact img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+footer {
+  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-accent);
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+footer p {
+  margin: 0;
+}
+footer nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: var(--color-primary);
+}
+footer .mail-icon {
+  width: 24px;
+  height: 24px;
+}
+.nav-links .dropdown {
+  position: relative;
+}
+.nav-links .dropdown > a {
+  display: flex;
+  align-items: center;
+}
+.nav-links .dropdown > a::after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+.nav-links .dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+.nav-links .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-background);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.nav-links .dropdown-content a {
+  color: var(--color-text);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.nav-links .dropdown-content a:hover {
+  background-color: var(--color-accent);
+}
+.nav-links .dropdown:hover .dropdown-content {
+  display: block;
+}
+#response-message {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.success {
+  color: #4CAF50;
+}
+.error {
+  color: #F44336;
+}
+.earnings-section {
+  background-color: rgba(67, 67, 67, 0.1);
+  padding: 4rem 0;
+  text-align: center;
+}
+.earnings-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.earnings-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.earnings-text {
+  max-width: 600px;
+}
+.earnings-headline {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+.reality-section {
+  background-color: var(--color-background);
+  padding: 4rem 0;
+  text-align: center;
+}
+.reality-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.reality-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.reality-text {
+  max-width: 600px;
+}
+.reality-headline {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: var(--color-background);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-item {
+    margin: 2.5rem 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-links .dropdown-content {
+    position: static;
+    display: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .nav-links .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .nav-links .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  footer .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #contact .content-wrapper {
+    flex-direction: column;
+  }
+
+  #contact .image-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .features h2, .earnings-headline, .reality-headline {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .earnings-content, .reality-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .earnings-image, .reality-image {
+    max-width: 50%;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="index.html" class="logo">
+  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
+  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+</a>
+<ul class="nav-links">
+  <li><a href="founder.html">Founder</a></li>
+  <li class="dropdown">
+    <a href="#">Members</a>
+    <div class="dropdown-content">
+      <a href="membership.html">Membership</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="#">Investors</a>
+    <div class="dropdown-content">
+      <a href="invest.html">Invest</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </li>
+  <li><a href="#careers">Careers</a></li>
+  <li><a href="#signin">Sign in</a></li>
+  <li><a href="#beta">Beta</a></li>
+  <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
+</ul>
+<div class="burger">
+  <div class="line1"></div>
+  <div class="line2"></div>
+  <div class="line3"></div>
+</div>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="container">
+  <h1>Elevate Your Rideshare Experience</h1>
+  <p>A drivers hub for all rideshare industry platforms. Maximize your earnings and enhance your driving experience.</p>
+  <p class="tagline">Designed by a driver, for the driver.</p>
+  <form id="email-form" class="cta-form">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <select id="country" name="country" required>
+          <option value="">Select your country</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="UK">United Kingdom</option>
+          <option value="AU">Australia</option>
+          <option value="CN">China</option>
+          <option value="BR">Brazil</option>
+          <option value="IN">India</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+          <option value="MX">Mexico</option>
+          <option value="RU">Russia</option>
+          <option value="ZA">South Africa</option>
+          <option value="JP">Japan</option>
+          <option value="NZ">New Zealand</option>
+          <option value="Not listed">Not listed</option>
+      </select>
+      <input type="text" id="manual-country" name="manual-country" placeholder="Enter your country" style="display: none;">
+      <select id="state" name="state" style="display: none;" required>
+          <option value="">Select your state</option>
+          <!-- States will be populated dynamically -->
+      </select>
+      <select id="city" name="city" style="display: none;">
+          <option value="">Select your city</option>
+          <!-- Cities will be populated dynamically -->
+      </select>
+      <input type="text" id="manual-city" name="manual-city" placeholder="Where do you drive?" style="display: none;">
+      <button type="submit" class="cta-button">Gain Early Access</button>
+  </form>
+  <div id="response-message"></div>
+</div>
+</section>
+
+<section class="features">
+<div class="container">
+  <h2>Revolutionize Your Driving</h2>
+  <p>Our dashboard is designed to transform your rideshare driving into a more profitable and enjoyable experience.</p>
+  <div class="feature-grid">
+      <div class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="4" height="12" fill="#EDCA3F"/>
+              <rect x="10" y="12" width="4" height="8" fill="#EDCA3F"/>
+              <rect x="16" y="4" width="4" height="16" fill="#EDCA3F"/>
+          </svg>
+          <h3>Performance Tracking</h3>
+          <p>Measure and manage your performance stats in real-time.</p>
+      </div>
+      <div class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="20" width="2" height="2" fill="#EDCA3F"/>
+              <rect x="6" y="16" width="2" height="6" fill="#EDCA3F"/>
+              <rect x="10" y="12" width="2" height="10" fill="#EDCA3F"/>
+              <rect x="14" y="8" width="2" height="14" fill="#EDCA3F"/>
+              <rect x="18" y="4" width="2" height="18" fill="#EDCA3F"/>
+          </svg>
+          <h3>Maximize Your Earnings</h3>
+          <p>Boost your earnings with our strategic tools to maximize your earning potential.</p>
+      </div>
+      <div class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="#EDCA3F" stroke-width="2"/>
+              <line x1="2" y1="8" x2="22" y2="8" stroke="#EDCA3F" stroke-width="2"/>
+              <line x1="6" y1="12" x2="6" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+              <line x1="10" y1="12" x2="10" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+              <line x1="14" y1="12" x2="14" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+              <line x1="18" y1="12" x2="18" y2="18" stroke="#EDCA3F" stroke-width="2"/>
+          </svg>
+          <h3>Gamification Experience</h3>
+          <p>Make your driving shifts more engaging and fun with our interactive challenges and rewards.</p>
+      </div>
+  </div>
+</div>
+</section>
+
+<section class="earnings-section">
+<div class="container">
+  <h2 class="earnings-headline">Be Prepared for Opportunity</h2>
+  <div class="earnings-content">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4.2k-eLDhQQpHZLFZsIRGSc8YRjH3mWLvw6.jpg" alt="Earnings breakdown showing $4,259.38 total earnings" class="earnings-image">
+      <div class="earnings-text">
+          <h2>Real Earnings, Real Results</h2>
+          <p>See the potential of what you can earn with our platform. This real earnings breakdown shows how the Founder, Chris Efkarpidis made $4,259.38 in just one week using his dashboard. With our platform, you can optimize your time, take advantage of promotions, and increase your tips, all leading to significantly higher income.</p>
+      </div>
+  </div>
+</div>
+</section>
+
+<section class="reality-section">
+<div class="container">
+  <h2 class="reality-headline">Make it Your Reality</h2>
+  <div class="reality-content">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202024-10-27%20at%208.37.01%E2%80%AFPM-JYulAF6rjqr6cLJeWRAc4Pj9wKfGbi.png" alt="Driver checking earnings of $4,259.38 on smartphone while in car" class="reality-image">
+      <div class="reality-text">
+          <p>With us, you can turn your driving time into a lucrative opportunity. Our platform empowers you to measure and manage your earnings in real-time, make sophisticated, data-driven decisions, and maximize your income potential. Don't just dream of better earnings—make them your everyday reality with our innovative tools and insights to help you consistently improve.</p>
+      </div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <h2>Ready to Break Records?</h2>
+  <div class="content-wrapper">
+      <div class="text-content">
+          <p>Join our community of high-achieving drivers who are setting new standards in the rideshare industry with us.</p>
+          <a href="#" class="cta-button">Get Early Access Now</a>
+      </div>
+      <div class="image-content">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/smartmockups_m2qvhdsd-TCmbBhZIbehf6BV2qG2NlrwcH2k44w.jpg" alt="Smartphone displaying Boosted Earnings leaderboard with top earner making $4,638.53" />
+      </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+<nav>
+  <a href="#">Terms of Service</a>
+  <a href="#">Privacy Policy</a>
+  <a href="mailto:connect@boostedearnings.com" aria-label="Email us">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
+          <rect width="20" height="16" x="2" y="4" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+  </a>
+</nav>
+</div>
+</footer>
+
+<script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyA5Ow4MYYj_8sNVZkZnJCVRZOscGVLwYwY",
+authDomain: "boosted-earnings-d6bb4.firebaseapp.com",
+projectId: "boosted-earnings-d6bb4",
+storageBucket: "boosted-earnings-d6bb4.appspot.com",
+messagingSenderId: "1098124911168",
+appId: "1:1098124911168:web:c7d1e3d7f7d7b8e8e8e8e8"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function checkExistingEmail(email) {
+const submissionsRef = collection(db, "submissions");
+const q = query(submissionsRef, where("email", "==", email));
+const querySnapshot = await getDocs(q);
+return !querySnapshot.empty;
+}
+
+function isOnCooldown() {
+const lastSubmission = localStorage.getItem('lastSubmission');
+if (lastSubmission) {
+const cooldownPeriod = 5 * 60 * 1000; // 5 minutes in milliseconds
+const timeSinceLastSubmission = Date.now() - parseInt(lastSubmission);
+return timeSinceLastSubmission < cooldownPeriod;
+}
+return false;
+}
+
+// Form submission handler
+document.getElementById('email-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+console.log('Form submitted');
+
+var formData = new FormData(this);
+var data = Object.fromEntries(formData);
+console.log('Form data:', data);
+
+// Form validation
+if (!data.email || !data.country) {
+showMessage('Please fill in all required fields.', 'error');
+return;
+}
+
+// Check cooldown
+if (isOnCooldown()) {
+showMessage('Please wait a few minutes before submitting again.', 'error');
+return;
+}
+
+// Show loading state
+showMessage('Submitting...', 'info');
+
+try {
+// Check for existing email
+const emailExists = await checkExistingEmail(data.email);
+if (emailExists) {
+  showMessage('This email has already been submitted.', 'error');
+  return;
+}
+
+// Clean up the data object by removing undefined or empty string values
+const cleanData = {
+  email: data.email,
+  country: data.country,
+  timestamp: new Date()
+};
+
+// Only add these fields if they have non-empty values
+if (data.state && data.state.trim() !== "") cleanData.state = data.state;
+if (data.city && data.city.trim() !== "") cleanData.city = data.city;
+if (data.manual_country && data.manual_country.trim() !== "") cleanData.manual_country = data.manual_country;
+if (data.manual_city && data.manual_city.trim() !== "") cleanData.manual_city = data.manual_city;
+
+// Add the cleaned data to Firestore
+const docRef = await addDoc(collection(db, "submissions"), cleanData);
+
+console.log("Document written with ID: ", docRef.id);
+showMessage('Thank you for your interest! We\'ll be in touch soon.', 'success');
+this.reset();
+
+// Set cooldown
+localStorage.setItem('lastSubmission', Date.now().toString());
+} catch (error) {
+console.error("Error adding document: ", error);
+showMessage('An error occurred: ' + error.message, 'error');
+}
+});
+
+function showMessage(message, type) {
+var messageElement = document.getElementById('response-message');
+messageElement.textContent = message;
+messageElement.className = type;
+messageElement.style.display = 'block';
+}
+</script>
+
+<script>
+// Country, State, and City selection logic
+const countrySelect = document.getElementById('country');
+const stateSelect = document.getElementById('state');
+const citySelect = document.getElementById('city');
+const manualCityInput = document.getElementById('manual-city');
+const manualCountryInput = document.getElementById('manual-country');
+
+const states = {
+US: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+CA: ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan'],
+UK: ['England', 'Scotland', 'Wales', 'Northern Ireland'],
+AU: ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia', 'Tasmania', 'Australian Capital Territory', 'Northern Territory']
+};
+
+const cities = {
+US: {
+  Pennsylvania: ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Allentown', 'Lancaster', 'Reading', 'Scranton', 'Erie', 'York', 'State College', 'Altoona-Johnstown Area', 'Williamsport', 'Not listed'],
+  Texas: ['Houston', 'Dallas-Fort Worth', 'Austin', 'San Antonio', 'Corpus Christi', 'El Paso', 'Waco-Killeen', 'Lubbock', 'College Station', 'Beaumont', 'Mi. Lake Tahoe', 'Yuba-Sutter', 'Mendocino County', 'Humboldt County', 'Not listed'],
+  Florida: ['Miami', 'Orlando', 'Tampa Bay', 'Jacksonville', 'Fort Myers', 'Gainesville', 'Tallahassee', 'Sarasota', 'Daytona Beach', 'Palm Bay', 'Pensacola', 'Fort Walton Beach', 'Panama City', 'Ocala', 'Not listed'],
+  Illinois: ['Chicago', 'Champaign', 'Rockford', 'Peoria', 'Bloomington-Normal', 'Quad Cities', 'Springfield', 'Carbondale', 'Not listed'],
+  Indiana: ['Indianapolis', 'Fort Wayne', 'Bloomington', 'Lafayette', 'Muncie',
+  'South Ben', 'Evansville', 'Terre Haute', 'Not listed'],
+  Iowa: ['Des Moines', 'Cedar Rapids', 'Iowa City', 'Quad Cities', 'Ames', 'Sioux City', 'Dubuque', 'Waterloo', 'Not listed'],
+  Kansas: ['Kansas City', 'Wichita', 'Topeka', 'Lawrence', 'Manhattan', 'Emporia', 'Not listed'],
+  Kentucky: ['Louisville', 'Lexington', 'Bowling Green', 'Owensboro', 'Northern Kentucky', 'Not listed'],
+  Louisiana: ['New Orleans', 'Baton Rouge', 'Lafayette', 'Lake Charles', 'Shreveport', 'Monroe', 'Not listed'],
+  Maine: ['Portland', 'Bangor', 'Augusta', 'Not listed'],
+  Maryland: ['Baltimore', 'Annapolis', 'Ocean City', 'Western Maryland', 'Not listed'],
+  Massachusetts: ['Boston', 'Worcester', 'Springfield', 'Cape Cod', 'Not listed'],
+  Michigan: ['Detroit', 'Ann Arbor', 'Grand Rapids', 'Lansing', 'Kalamazoo', 'Flint', 'Traverse City', 'Marquette', 'Not listed'],
+  Minnesota: ['Minneapolis-St. Paul', 'Duluth', 'Rochester', 'St. Cloud', 'Mankato', 'Not listed'],
+  Mississippi: ['Jackson', 'Gulfport-Biloxi', 'Hattiesburg', 'Oxford', 'Not listed'],
+  Missouri: ['St. Louis', 'Kansas City', 'Springfield', 'Columbia', 'Jefferson City', 'Not listed'],
+  Montana: ['Billings', 'Missoula', 'Bozeman', 'Helena', 'Great Falls', 'Not listed'],
+  Nebraska: ['Omaha', 'Lincoln', 'Grand Island', 'Kearney', 'Not listed'],
+  Nevada: ['Las Vegas', 'Reno', 'Carson City', 'Elko', 'Not listed'],
+  'New Hampshire': ['Manchester', 'Nashua', 'Concord', 'Portsmouth', 'Not listed'],
+  'New Jersey': ['Newark', 'Jersey City', 'Trenton', 'Atlantic City', 'Not listed'],
+  'New York': ['New York City', 'Buffalo', 'Rochester', 'Syracuse', 'Albany', 'Ithaca', 'Binghamton', 'Utica', 'Watertown', 'Plattsburgh', 'Not listed'],
+  'North Carolina': ['Charlotte', 'Raleigh-Durham', 'Greensboro', 'Winston-Salem', 'Asheville', 'Wilmington', 'Fayetteville', 'Greenville', 'Not listed'],
+  'North Dakota': ['Fargo', 'Bismarck', 'Grand Forks', 'Minot', 'Not listed'],
+  Ohio: ['Columbus', 'Cleveland', 'Cincinnati', 'Toledo', 'Akron', 'Dayton', 'Youngstown', 'Not listed'],
+  Oklahoma: ['Oklahoma City', 'Tulsa', 'Norman', 'Stillwater', 'Lawton', 'Not listed'],
+  Oregon: ['Portland', 'Eugene', 'Salem', 'Bend', 'Medford', 'Not listed'],
+  'Rhode Island': ['Providence', 'Newport', 'Warwick', 'Not listed'],
+  'South Carolina': ['Charleston', 'Columbia', 'Greenville', 'Myrtle Beach', 'Not listed'],
+  Tennessee: ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga', 'Clarksville', 'Not listed'],
+  Utah: ['Salt Lake City', 'Provo', 'Ogden', 'St. George', 'Logan', 'Not listed'],
+  Vermont: ['Burlington', 'Montpelier', 'Rutland', 'Not listed'],
+  Virginia: ['Richmond', 'Virginia Beach', 'Norfolk', 'Charlottesville', 'Roanoke', 'Lynchburg', 'Not listed'],
+  Washington: ['Seattle', 'Spokane', 'Tacoma', 'Vancouver', 'Bellingham', 'Olympia', 'Yakima', 'Tri-Cities', 'Wenatchee', 'Not listed'],
+  'West Virginia': ['Charleston', 'Huntington', 'Morgantown', 'Wheeling', 'Not listed'],
+  Wisconsin: ['Milwaukee', 'Madison', 'Green Bay', 'Appleton', 'Eau Claire', 'La Crosse', 'Not listed'],
+  Wyoming: ['Cheyenne', 'Casper', 'Laramie', 'Jackson', 'Not listed'],
+  Alabama: ['Birmingham', 'Montgomery', 'Mobile', 'Huntsville', 'Tuscaloosa', 'Not listed'],
+  Alaska: ['Anchorage', 'Fairbanks', 'Juneau', 'Not listed'],
+  Arizona: ['Phoenix', 'Tucson', 'Flagstaff', 'Yuma', 'Not listed'],
+  Arkansas: ['Little Rock', 'Fayetteville', 'Fort Smith', 'Jonesboro', 'Not listed'],
+  Colorado: ['Denver', 'Colorado Springs', 'Boulder', 'Fort Collins', 'Aspen', 'Not listed'],
+  Connecticut: ['Hartford', 'New Haven', 'Stamford', 'Bridgeport', 'Not listed'],
+  Delaware: ['Wilmington', 'Dover', 'Newark', 'Not listed'],
+  Hawaii: ['Honolulu', 'Maui', 'Big Island', 'Kauai', 'Not listed'],
+  Idaho: ['Boise', 'Idaho Falls', 'Pocatello', 'Coeur d\'Alene', 'Not listed']
+},
+CA: {
+  Alberta: ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Not listed'],
+  'British Columbia': ['Vancouver', 'Victoria', 'Kelowna', 'Nanaimo', 'Not listed'],
+  Manitoba: ['Winnipeg', 'Brandon', 'Thompson', 'Not listed'],
+  'New Brunswick': ['Fredericton', 'Saint John', 'Moncton', 'Not listed'],
+  'Newfoundland and Labrador': ['St. John\'s', 'Corner Brook', 'Labrador City', 'Not listed'],
+  'Nova Scotia': ['Halifax', 'Sydney', 'Truro', 'Not listed'],
+  Ontario: ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Windsor', 'Not listed'],
+  'Prince Edward Island': ['Charlottetown', 'Summerside', 'Not listed'],
+  Quebec: ['Montreal', 'Quebec City', 'Gatineau', 'Sherbrooke', 'Not listed'],
+  Saskatchewan: ['Saskatoon', 'Regina', 'Prince Albert', 'Not listed']
+},
+UK: {
+  England: ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Leeds', 'Not listed'],
+  Scotland: ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee', 'Not listed'],
+  Wales: ['Cardiff', 'Swansea', 'Newport', 'Not listed'],
+  'Northern Ireland': ['Belfast', 'Derry', 'Lisburn', 'Not listed']
+},
+AU: {
+  'New South Wales': ['Sydney', 'Newcastle', 'Wollongong', 'Not listed'],
+  Victoria: ['Melbourne', 'Geelong', 'Ballarat', 'Not listed'],
+  Queensland: ['Brisbane', 'Gold Coast', 'Cairns', 'Not listed'],
+  'Western Australia': ['Perth', 'Fremantle', 'Bunbury', 'Not listed'],
+  'South Australia': ['Adelaide', 'Mount Gambier', 'Whyalla', 'Not listed'],
+  Tasmania: ['Hobart', 'Launceston', 'Devonport', 'Not listed'],
+  'Australian Capital Territory': ['Canberra', 'Not listed'],
+  'Northern Territory': ['Darwin', 'Alice Springs', 'Not listed']
+}
+};
+
+countrySelect.addEventListener('change', function() {
+const selectedCountry = this.value;
+stateSelect.innerHTML = '<option value="">Select your state</option>';
+citySelect.innerHTML = '<option value="">Select your city</option>';
+
+if (selectedCountry === 'Not listed') {
+  manualCountryInput.style.display = 'block';
+  stateSelect.style.display = 'none';
+  citySelect.style.display = 'none';
+  manualCityInput.style.display = 'block';
+} else {
+  manualCountryInput.style.display = 'none';
+  if (states[selectedCountry]) {
+      stateSelect.style.display = 'block';
+      states[selectedCountry].forEach(state => {
+          const option = document.createElement('option');
+          option.value = state;
+          option.textContent = state;
+          stateSelect.appendChild(option);
+      });
+  } else {
+      stateSelect.style.display = 'none';
+      citySelect.style.display = 'none';
+      manualCityInput.style.display = 'block';
+  }
+}
+});
+
+stateSelect.addEventListener('change', function() {
+const selectedCountry = countrySelect.value;
+const selectedState = this.value;
+citySelect.innerHTML = '<option value="">Select your city</option>';
+
+if (cities[selectedCountry] && cities[selectedCountry][selectedState]) {
+  citySelect.style.display = 'block';
+  manualCityInput.style.display = 'none';
+  cities[selectedCountry][selectedState].forEach(city => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+  });
+} else {
+  citySelect.style.display = 'none';
+  manualCityInput.style.display = 'block';
+}
+});
+
+citySelect.addEventListener('change', function() {
+if (this.value === 'Not listed') {
+  manualCityInput.style.display = 'block';
+} else {
+  manualCityInput.style.display = 'none';
+}
+});
+
+// Theme toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const htmlElement = document.documentElement;
+
+themeToggle.addEventListener('click', () => {
+htmlElement.classList.toggle('light');
+updateThemeIcon();
+});
+
+function updateThemeIcon() {
+themeToggle.textContent = htmlElement.classList.contains('light') ? '🌙' : '🌓';
+}
+
+// Mobile navigation
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
+
+burger.addEventListener('click', () => {
+nav.classList.toggle('active');
+
+navLinks.forEach((link, index) => {
+  if (link.style.animation) {
+      link.style.animation = '';
+  } else {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+  }
+});
+
+burger.classList.toggle('toggle');
+});
+
+// Initialize theme
+updateThemeIcon();
+
+// Mobile dropdown functionality
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+  const dropdownLink = dropdown.querySelector('a');
+  const dropdownContent = dropdown.querySelector('.dropdown-content');
+  
+  dropdownLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle('active');
+    dropdownContent.style.display = dropdown.classList.contains('active') ? 'block' : 'none';
+  });
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown')) {
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove('active');
+      dropdown.querySelector('.dropdown-content').style.display = 'none';
+    });
+  }
+});
+
+// Ensure proper display on window resize
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    nav.classList.remove('active');
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove('active');
+      dropdown.querySelector('.dropdown-content').style.display = '';
+    });
+  }
+});
+</script>
+</body>
+</html>

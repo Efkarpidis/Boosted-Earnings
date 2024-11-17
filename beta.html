@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beta Testing - Become a Beta Tester</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+--color-primary: #EDCA3F;
+--color-secondary: #CA9825;
+--color-background: #0F0F0F;
+--color-text: #E0E0E0;
+--color-text-muted: #B1B1B1;
+--color-accent: #434343;
+--color-tagline: #FFD700;
+}
+.light {
+--color-background: #FFFFFF;
+--color-text: #1A1A1A;
+--color-text-muted: #555555;
+--color-accent: #E0E0E0;
+}
+body {
+font-family: 'Poppins', sans-serif;
+line-height: 1.6;
+color: var(--color-text);
+background-color: var(--color-background);
+margin: 0;
+padding: 0;
+transition: background-color 0.3s ease, color 0.3s ease;
+font-size: 16px;
+}
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+header {
+background-color: rgba(15, 15, 15, 0.8);
+backdrop-filter: blur(10px);
+position: fixed;
+width: 100%;
+z-index: 1000;
+transition: background-color 0.3s ease;
+}
+.light header {
+background-color: rgba(255, 255, 255, 0.8);
+}
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 0;
+}
+.logo img {
+height: 40px;
+width: auto;
+transition: opacity 0.3s ease;
+}
+.logo img.light-logo {
+display: none;
+}
+.light .logo img.dark-logo {
+display: none;
+}
+.light .logo img.light-logo {
+display: inline;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+align-items: center;
+}
+.nav-links a {
+color: var(--color-text);
+text-decoration: none;
+font-weight: bold;
+transition: color 0.3s ease;
+position: relative;
+}
+.nav-links a::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 2px;
+bottom: -5px;
+left: 0;
+background-color: var(--color-primary);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.nav-links a:hover::after {
+transform: scaleX(1);
+}
+.burger {
+display: none;
+cursor: pointer;
+}
+.burger div {
+width: 25px;
+height: 3px;
+background-color: var(--color-primary);
+margin: 5px;
+transition: all 0.3s ease;
+}
+.theme-toggle {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+color: var(--color-text);
+font-size: 1.5rem;
+transition: color 0.3s ease;
+}
+.theme-toggle:hover {
+color: var(--color-primary);
+}
+main {
+padding-top: 80px;
+min-height: calc(100vh - 80px - 100px);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: linear-gradient(135deg, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 0.9) 100%);
+}
+.hero {
+padding: 4rem 0;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(237, 202, 63, 0.1) 0%, rgba(15, 15, 15, 0) 70%);
+animation: rotate 20s linear infinite;
+z-index: -1;
+}
+@keyframes rotate {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+h1, h2, h3 {
+color: var(--color-primary);
+}
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.hero p {
+font-size: 1.2rem;
+max-width: 600px;
+margin: 0 auto 2rem;
+color: var(--color-text-muted);
+}
+.beta-message {
+background-color: rgba(237, 202, 63, 0.1);
+border: 2px solid var(--color-primary);
+border-radius: 10px;
+padding: 2rem;
+margin: 2rem auto;
+text-align: center;
+max-width: 800px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+transform: translateY(0);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.beta-message:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+.beta-message h2 {
+font-size: 2rem;
+margin-bottom: 1rem;
+}
+.beta-message p {
+font-size: 1.1rem;
+margin-bottom: 2rem;
+color: var(--color-text-muted);
+}
+.cta-button {
+background-color: var(--color-primary);
+color: var(--color-background);
+padding: 1rem 2rem;
+text-decoration: none;
+border-radius: 50px;
+font-weight: bold;
+transition: all 0.3s ease;
+border: none;
+cursor: pointer;
+font-size: 1.1rem;
+display: inline-block;
+text-align: center;
+min-width: 200px;
+position: relative;
+overflow: hidden;
+}
+.cta-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(
+  120deg,
+  transparent,
+  rgba(255, 255, 255, 0.3),
+  transparent
+);
+transition: all 0.6s;
+}
+.cta-button:hover::before {
+left: 100%;
+}
+.cta-button:hover {
+background-color: var(--color-secondary);
+transform: scale(1.05);
+}
+footer {
+background-color: var(--color-background);
+color: var(--color-text-muted);
+text-align: center;
+padding: 2rem 0;
+border-top: 1px solid var(--color-accent);
+}
+footer .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+footer p {
+margin: 0;
+}
+footer nav {
+display: flex;
+gap: 1.5rem;
+align-items: center;
+}
+footer a {
+color: var(--color-text-muted);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+footer a:hover {
+color: var(--color-primary);
+}
+footer .mail-icon {
+width: 24px;
+height: 24px;
+}
+@media screen and (max-width: 768px) {
+.nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+}
+.nav-links li {
+    opacity: 0;
+}
+.burger {
+    display: block;
+}
+footer .container {
+    flex-direction: column;
+    gap: 1rem;
+}
+main {
+    padding-top: 60px;
+}
+.beta-message {
+    margin: 1rem auto;
+    padding: 1.5rem;
+}
+.beta-message h2 {
+    font-size: 1.5rem;
+}
+.beta-message p {
+    font-size: 1rem;
+}
+}
+@media screen and (max-width: 480px) {
+.hero h1 {
+    font-size: 2rem;
+}
+.hero p {
+    font-size: 1rem;
+}
+.beta-message {
+    padding: 1.5rem;
+}
+.beta-message h2 {
+    font-size: 1.5rem;
+}
+.beta-message p {
+    font-size: 1rem;
+}
+.cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+}
+}
+.nav-active {
+transform: translateX(0%);
+}
+@keyframes navLinkFade {
+from {
+    opacity: 0;
+    transform: translateX(50px);
+}
+to {
+    opacity: 1;
+    transform: translateX(0px);
+}
+}
+.toggle .line1 {
+transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2 {
+opacity: 0;
+}
+.toggle .line3 {
+transform: rotate(45deg) translate(-5px,-6px);
+}
+.popup-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1001;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.popup-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+.popup-content {
+background-color: var(--color-background);
+padding: 2rem;
+border-radius: 10px;
+max-width: 400px;
+width: 90%;
+position: relative;
+transform: scale(0.8);
+transition: transform 0.3s ease;
+}
+.popup-overlay.active .popup-content {
+transform: scale(1);
+}
+.popup-close {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 1.5rem;
+cursor: pointer;
+background: none;
+border: none;
+color: var(--color-text);
+}
+.popup-form {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+.popup-form input,
+.popup-form select {
+width: 100%;
+padding: 0.75rem;
+border: 2px solid var(--color-primary);
+background-color: rgba(255, 255, 255, 0.1);
+color: var(--color-text);
+border-radius: 5px;
+font-size: 1rem;
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.popup-form input:focus,
+.popup-form select:focus {
+outline: none;
+border-color: var(--color-secondary);
+box-shadow: 0 0 0 2px rgba(237, 202, 63, 0.3);
+}
+.popup-form button {
+background-color: var(--color-primary);
+color: var(--color-background);
+padding: 0.75rem 1rem;
+border: none;
+border-radius: 5px;
+font-weight: bold;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.popup-form button:hover {
+background-color: var(--color-secondary);
+transform: translateY(-2px);
+}
+.features {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+margin-top: 3rem;
+gap: 2rem;
+}
+.feature {
+flex-basis: calc(33.333% - 2rem);
+text-align: center;
+padding: 1.5rem;
+background-color: rgba(255, 255, 255, 0.05);
+border-radius: 10px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature:hover {
+transform: translateY(-10px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.feature-icon {
+font-size: 2.5rem;
+color: var(--color-primary);
+margin-bottom: 1rem;
+}
+.feature h3 {
+font-size: 1.2rem;
+margin-bottom: 0.5rem;
+}
+.feature p {
+font-size: 0.9rem;
+color: var(--color-text-muted);
+}
+@media screen and (max-width: 768px) {
+.feature {
+  flex-basis: calc(50% - 2rem);
+}
+}
+@media screen and (max-width: 480px) {
+.feature {
+  flex-basis: 100%;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="index.html" class="logo">
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2010@4x-8-I0PprjR8DJ0CukxMv6MTFMuU9222q7.png" alt="Boosted Earnings Logo" class="dark-logo">
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%2012@4x-8-FwinZR7s2GfGVmzCGG2e9rldDcdFRu.png" alt="Boosted Earnings Logo" class="light-logo">
+</a>
+<ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="invest.html">Invest</a></li>
+    <li><a href="beta.html">Beta</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><button class="theme-toggle" aria-label="Toggle dark/light mode">🌓</button></li>
+</ul>
+<div class="burger">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+</div>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<h1>Become a Beta Tester</h1>
+<p>Be among the first to experience our groundbreaking platform and shape its future.</p>
+</section>
+
+<section class="beta-message">
+<h2>Exclusive Beta Access for Testers! 🚀</h2>
+<p>We're thrilled to offer early access to our platform for our beta testers. Help shape the future of income optimization and enjoy premium features for free during our beta phase.</p>
+<button id="beta-signup-btn" class="cta-button">Join Beta Program</button>
+</section>
+
+<section class="features">
+<div class="feature">
+  <div class="feature-icon">💡</div>
+  <h3>Smart Insights</h3>
+  <p>Gain valuable insights into your earning potential and optimize your income streams.</p>
+</div>
+<div class="feature">
+  <div class="feature-icon">📊</div>
+  <h3>Real-time Analytics</h3>
+  <p>Track your earnings in real-time and make data-driven decisions to boost your income.</p>
+</div>
+<div class="feature">
+  <div class="feature-icon">🔒</div>
+  <h3>Secure Platform</h3>
+  <p>Your financial data is protected with state-of-the-art security measures.</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<p>&copy; 2024 Boosted Earnings. All rights reserved.</p>
+<nav>
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+    <a href="mailto:connect@boostedearnings.com" aria-label="Email us">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        </svg>
+    </a>
+</nav>
+</div>
+</footer>
+
+<div class="popup-overlay" id="beta-signup-popup">
+<div class="popup-content">
+  <button class="popup-close">&times;</button>
+  <h2>Join Our Beta Program</h2>
+  <form id="beta-signup-form" class="popup-form">
+  <input type="email" name="email" placeholder="Enter your email" required>
+  <select id="country" name="country" required>
+    <option value="">Select your country</option>
+    <option value="US">United States</option>
+    <option value="CA">Canada</option>
+    <option value="UK">United Kingdom</option>
+    <option value="AU">Australia</option>
+    <option value="CN">China</option>
+    <option value="BR">Brazil</option>
+    <option value="IN">India</option>
+    <option value="FR">France</option>
+    <option value="DE">Germany</option>
+    <option value="MX">Mexico</option>
+    <option value="RU">Russia</option>
+    <option value="ZA">South Africa</option>
+    <option value="JP">Japan</option>
+    <option value="NZ">New Zealand</option>
+    <option value="Not listed">Not listed</option>
+  </select>
+  <input type="text" id="manual-country" name="manual-country" placeholder="Enter your country" style="display: none;">
+  <select id="state" name="state" style="display: none;" required>
+    <option value="">Select your state</option>
+  </select>
+  <select id="city" name="city" style="display: none;">
+    <option value="">Select your city</option>
+  </select>
+  <input type="text" id="manual-city" name="manual-city" placeholder="Where do you drive?" style="display: none;">
+  <button type="submit" class="cta-button">Sign Up for Beta Testing</button>
+</form>
+</div>
+</div>
+
+<script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyA5Ow4MYYj_8sNVZkZnJCVRZOscGVLwYwY",
+authDomain: "boosted-earnings-d6bb4.firebaseapp.com",
+projectId: "boosted-earnings-d6bb4",
+storageBucket: "boosted-earnings-d6bb4.appspot.com",
+messagingSenderId: "1098124911168",
+appId: "1:1098124911168:web:c7d1e3d7f7d7b8e8e8e8e8"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function checkExistingEmail(email) {
+const submissionsRef = collection(db, "submissions");
+const q = query(submissionsRef, where("email", "==", email));
+const querySnapshot = await getDocs(q);
+return !querySnapshot.empty;
+}
+
+function isOnCooldown() {
+const lastSubmission = localStorage.getItem('lastSubmission');
+if (lastSubmission) {
+const cooldownPeriod = 5 * 60 * 1000; // 5 minutes in milliseconds
+const timeSinceLastSubmission = Date.now() - parseInt(lastSubmission);
+return timeSinceLastSubmission < cooldownPeriod;
+}
+return false;
+}
+
+// Form submission handler
+document.getElementById('beta-signup-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+console.log('Form submitted');
+
+var formData = new FormData(this);
+var data = Object.fromEntries(formData);
+console.log('Form data:', data);
+
+// Form validation
+if (!data.email || !data.country) {
+alert('Please fill in all required fields.');
+return;
+}
+
+// Check cooldown
+if (isOnCooldown()) {
+alert('Please wait a few minutes before submitting again.');
+return;
+}
+
+try {
+// Check for existing email
+const emailExists = await checkExistingEmail(data.email);
+if (emailExists) {
+  alert('This email has already been submitted.');
+  return;
+}
+
+// Clean up the data object by removing undefined or empty string values
+const cleanData = {
+  email: data.email,
+  country: data.country,
+  timestamp: new Date()
+};
+
+// Only add these fields if they have non-empty values
+if (data.state && data.state.trim() !== "") cleanData.state = data.state;
+if (data.city && data.city.trim() !== "") cleanData.city = data.city;
+if (data.manual_country && data.manual_country.trim() !== "") cleanData.manual_country = data.manual_country;
+if (data.manual_city && data.manual_city.trim() !== "") cleanData.manual_city = data.manual_city;
+
+// Add the cleaned data to Firestore
+const docRef = await addDoc(collection(db, "submissions"), cleanData);
+
+console.log("Document written with ID: ", docRef.id);
+alert('Thank you for your interest! We\'ll be in touch soon.');
+this.reset();
+document.getElementById('beta-signup-popup').classList.remove('active');
+
+// Set cooldown
+localStorage.setItem('lastSubmission', Date.now().toString());
+} catch (error) {
+console.error("Error adding document: ", error);
+alert('An error occurred: ' + error.message);
+}
+});
+</script>
+
+<script>
+// Theme toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const htmlElement = document.documentElement;
+
+themeToggle.addEventListener('click', () => {
+htmlElement.classList.toggle('light');
+updateThemeIcon();
+});
+
+function updateThemeIcon() {
+themeToggle.textContent = htmlElement.classList.contains('light') ? '🌙' : '🌓';
+}
+
+// Mobile navigation
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
+
+burger.addEventListener('click', () => {
+nav.classList.toggle('nav-active');
+
+navLinks.forEach((link, index) => {
+    if (link.style.animation) {
+        link.style.animation = '';
+    } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+    }
+});
+
+burger.classList.toggle('toggle');
+});
+
+// Beta signup popup
+const betaSignupBtn = document.getElementById('beta-signup-btn');
+const betaSignupPopup = document.getElementById('beta-signup-popup');
+const popupClose = document.querySelector('.popup-close');
+
+betaSignupBtn.addEventListener('click', () => {
+betaSignupPopup.classList.add('active');
+});
+
+popupClose.addEventListener('click', () => {
+betaSignupPopup.classList.remove('active');
+});
+
+betaSignupPopup.addEventListener('click', (e) => {
+if (e.target === betaSignupPopup) {
+  betaSignupPopup.classList.remove('active');
+}
+});
+
+// Country, State, and City selection logic
+const countrySelect = document.getElementById('country');
+const stateSelect = document.getElementById('state');
+const citySelect = document.getElementById('city');
+const manualCityInput = document.getElementById('manual-city');
+const manualCountryInput = document.getElementById('manual-country');
+
+const states = {
+  US: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+  CA: ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan'],
+  UK: ['England', 'Scotland', 'Wales', 'Northern Ireland'],
+  AU: ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia', 'Tasmania', 'Australian Capital Territory', 'Northern Territory']
+};
+
+const cities = {
+  US: {
+    California: ['Los Angeles', 'San Francisco', 'San Diego', 'San Jose', 'Fresno', 'Sacramento', 'Long Beach', 'Oakland', 'Bakersfield', 'Anaheim', 'Santa Ana', 'Riverside', 'Stockton', 'Irvine', 'Chula Vista', 'Fremont', 'San Bernardino', 'Modesto', 'Fontana', 'Oxnard', 'Moreno Valley', 'Huntington Beach', 'Glendale', 'Santa Clarita', 'Garden Grove', 'Oceanside', 'Rancho Cucamonga', 'Santa Rosa', 'Ontario', 'Lancaster', 'Elk Grove', 'Corona', 'Palmdale', 'Salinas', 'Pomona', 'Hayward', 'Escondido', 'Torrance', 'Sunnyvale', 'Orange', 'Fullerton', 'Pasadena', 'Not listed'],
+    // Add more states and cities as needed
+  },
+  // Add more countries and their states/cities as needed
+};
+
+countrySelect.addEventListener('change', function() {
+  const selectedCountry = this.value;
+  stateSelect.innerHTML = '<option value="">Select your state</option>';
+  citySelect.innerHTML = '<option value="">Select your city</option>';
+
+  if (selectedCountry === 'Not listed') {
+    manualCountryInput.style.display = 'block';
+    stateSelect.style.display = 'none';
+    citySelect.style.display = 'none';
+    manualCityInput.style.display = 'block';
+  } else {
+    manualCountryInput.style.display = 'none';
+    if (states[selectedCountry]) {
+      stateSelect.style.display = 'block';
+      states[selectedCountry].forEach(state => {
+        const option = document.createElement('option');
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+      });
+    } else {
+      stateSelect.style.display = 'none';
+      citySelect.style.display = 'none';
+      manualCityInput.style.display = 'block';
+    }
+  }
+});
+
+stateSelect.addEventListener('change', function() {
+  const selectedCountry = countrySelect.value;
+  const selectedState = this.value;
+  citySelect.innerHTML = '<option value="">Select your city</option>';
+
+  if (cities[selectedCountry] && cities[selectedCountry][selectedState]) {
+    citySelect.style.display = 'block';
+    manualCityInput.style.display = 'none';
+    cities[selectedCountry][selectedState].forEach(city => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    });
+  } else {
+    citySelect.style.display = 'none';
+    manualCityInput.style.display = 'block';
+  }
+});
+
+citySelect.addEventListener('change', function() {
+  if (this.value === 'Not listed') {
+    manualCityInput.style.display = 'block';
+  } else {
+    manualCityInput.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
