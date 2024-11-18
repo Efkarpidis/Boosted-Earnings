@@ -69,7 +69,7 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
 }
 .nav-links a {
@@ -361,17 +361,29 @@ footer .mail-icon {
   margin-top: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    right: -100%;
-    top: 5rem;
-    flex-direction: column;
-    background-color: var(--color-background);
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  @media screen and (max-width: 768px) {
+      .nav-links {
+          position: fixed;
+          right: 0;
+          top: 0;
+          height: 100vh;
+          background-color: var(--color-background);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in-out;
+          z-index: 1000;
+      }
+      .burger {
+          display: block;
+          z-index: 1001;
+      }
+      .nav-active {
+          transform: translateX(0%);
+      }
   }
 
   .nav-links.active {
@@ -893,61 +905,109 @@ function updateThemeIcon() {
 themeToggle.textContent = htmlElement.classList.contains('light') ? '🌙' : '🌓';
 }
 
-// Mobile navigation
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
+  // Mobile navigation
+  const navSlide = () => {
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav-links');
+      const navLinks = document.querySelectorAll('.nav-links li');
+      const body = document.body;
 
-burger.addEventListener('click', () => {
-nav.classList.toggle('active');
+      // Toggle Navigation
+      burger.addEventListener('click', () => {
+          nav.classList.toggle('nav-active');
+          body.classList.toggle('menu-open');
 
-navLinks.forEach((link, index) => {
-  if (link.style.animation) {
-      link.style.animation = '';
-  } else {
-      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-  }
-});
+          // Reset transform when closing
+          if (!nav.classList.contains('nav-active')) {
+              nav.style.transform = 'translateX(100%)';
+          } else {
+              nav.style.transform = 'translateX(0)';
+          }
 
-burger.classList.toggle('toggle');
-});
+          // Animate Links
+          navLinks.forEach((link, index) => {
+              if (link.style.animation) {
+                  link.style.animation = '';
+              } else {
+                  link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+              }
+          });
 
-// Initialize theme
-updateThemeIcon();
+          // Burger Animation
+          burger.classList.toggle('toggle');
+      });
 
-// Mobile dropdown functionality
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => {
-  const dropdownLink = dropdown.querySelector('a');
-  const dropdownContent = dropdown.querySelector('.dropdown-content');
-  
-  dropdownLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    dropdown.classList.toggle('active');
-    dropdownContent.style.display = dropdown.classList.contains('active') ? 'block' : 'none';
-  });
-});
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+          if (nav.classList.contains('nav-active') && 
+              !nav.contains(e.target) && 
+              !burger.contains(e.target)) {
+              nav.classList.remove('nav-active');
+              body.classList.remove('menu-open');
+              burger.classList.remove('toggle');
+              nav.style.transform = 'translateX(100%)';
 
-// Close dropdowns when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.dropdown')) {
+              navLinks.forEach(link => {
+                  link.style.animation = '';
+              });
+          }
+      });
+
+    const navSlide = () => {
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-active');
+                body.classList.remove('menu-open');
+                burger.classList.remove('toggle');
+                nav.style.transform = 'translateX(100%)';
+
+                navLinks.forEach(link => {
+                    link.style.animation = '';
+                });
+            });
+        });
+    };
+
+    navSlide();
+
+    // Initialize theme
+    updateThemeIcon();
+
+    // Mobile dropdown functionality
+    const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
-      dropdown.classList.remove('active');
-      dropdown.querySelector('.dropdown-content').style.display = 'none';
-    });
-  }
-});
+      const dropdownLink = dropdown.querySelector('a');
+      const dropdownContent = dropdown.querySelector('.dropdown-content');
 
-// Ensure proper display on window resize
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    nav.classList.remove('active');
-    dropdowns.forEach(dropdown => {
-      dropdown.classList.remove('active');
-      dropdown.querySelector('.dropdown-content').style.display = '';
+      dropdownLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+        dropdownContent.style.display = dropdown.classList.contains('active') ? 'block' : 'none';
+      });
     });
-  }
-});
-</script>
-</body>
-</html>
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dropdown')) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('active');
+          dropdown.querySelector('.dropdown-content').style.display = 'none';
+        });
+      }
+    });
+
+    // Ensure proper display on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        nav.classList.remove('active');
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('active');
+          dropdown.querySelector('.dropdown-content').style.display = '';
+        });
+      }
+    });
+    </script>
+    </body>
+    </html>
+    Efkarpidis
